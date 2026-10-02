@@ -97,6 +97,8 @@ python3 scripts/archive_kernel_log.py <version> <label> --kernel eda
 
 `scripts/render_pdf.py --executed-notebook <self-export> --export` writes
 PDFs under `renders/` (gitignored) and mirrors them to iCloud at
-`05_Projects/Kaggle/<repo>/`. The self-export is the copy of
-`/kaggle/working/__notebook__.ipynb` made by the notebook's last cell.
+`05_Projects/Kaggle/<repo>/`. Keep exactly two subfolders in both locations:
+`docs/` and `notebooks/`. Documentation collections and run-log evidence go
+under `docs/`; notebook renders go under `notebooks/`. The self-export is the
+copy of `/kaggle/working/__notebook__.ipynb` made by the notebook's last cell.
 Do not execute the modeling path locally to manufacture those outputs.

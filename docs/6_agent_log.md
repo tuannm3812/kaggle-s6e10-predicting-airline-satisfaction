@@ -134,3 +134,104 @@ Follow-up from the review above: the missing notebook was the blocker.
 - Log archived before any later push. PDF render is the next local step
   and uses that self-export, not a local re-run.
 - The kernel stays private. Public release was not requested.
+
+## 2026-10-02 — Independent review of EDA v1 and render path
+
+Reviewed commits `f649226`, `1a075c4`, and `d981699` as one workflow.
+The live kernel `tuannm3812/airline-satisfaction-eda` was re-checked and is
+`COMPLETE`; pulled metadata confirms private, CPU, TPU off, internet off,
+and competition source `playground-series-s6e10`. After normalizing
+Kaggle's string-versus-list representation of cell source, the committed
+notebook, live pulled source, and v1 self-export have identical cell text.
+The committed notebook is valid nbformat 4.5 and output-free; the self-export
+is valid and has outputs on 11 code cells.
+
+The archived log supports the numbers in `docs/2_eda_insights.md`: mounted
+shapes, target count, null counts, score-0 rates, category rates, top
+univariate AUC, maximum drift statistic, adversarial AUC, and duplicate
+count all match. The log spans about 31 seconds between its first and last
+entries (about 41 seconds from worker start), consistent with the documented
+"about 40 seconds". The notebook is a proportionate EDA rather than a model
+sweep.
+
+Fresh validation passed for Python compilation, shell syntax, notebook JSON,
+and the official submission verifier. The render command completed all nine
+current PDFs after `d981699`; all 11 pages of the executed-notebook PDF and
+the EDA-insights PDF were rendered to PNG and visually checked. Charts, code,
+headers, footers, and page breaks are legible with no clipping or overlap.
+
+Two workflow defects remain:
+
+1. **Fix before the next log archive — the version check is inert for this
+   notebook.** `scripts/archive_kernel_log.py` searches only for a JSON
+   fragment such as `"notebook_version": "v1"`, but the actual EDA log
+   stamps plain text `NOTEBOOK_VERSION v1`. Re-running the helper's regex
+   against `kernel_v01_eda.log` returns no matches, while a regex for the
+   plain stamp returns `v1`. The helper therefore copies a fetched log under
+   any caller-supplied version without checking or even warning, recreating
+   the mislabeling risk it was added to prevent. Make the notebook emit the
+   structured stamp the helper expects or teach the helper both formats;
+   reject a mismatch before copying rather than asking for a manual check.
+2. **Fix before adding `02_modeling.ipynb` — render evidence is not scoped to
+   a notebook.** In `scripts/render_pdf.py`, `--executed-notebook` and
+   `--kernel-log` are passed to every `notebooks/*.ipynb`. With the planned
+   second notebook, one EDA self-export/log would be rendered under both the
+   EDA and modeling filenames. S6E9 scoped these arguments to one notebook;
+   S6E10 needs an explicit notebook-to-evidence association rather than the
+   current global application. The current render is correct only because
+   there is exactly one notebook.
+
+Non-blocking hygiene: `git diff 51dbc1f..HEAD --check` reports CRLF/trailing
+whitespace throughout the vendored `assets/fonts/dm-sans/OFL.txt`; the theme
+metadata still says `S6E9 Project`, and the renderer's opening history still
+mentions the superseded headless-Chrome path. These do not affect the v1 run
+or current PDFs, but should be cleaned when the render code is next touched.
+
+No notebook logic, kernel, or helper was changed by this review.
+
+## 2026-10-02 — CRISP-DM EDA structure and Cursor handoff
+
+The user approved a bounded structural revision of the EDA notebook and the
+existing two-folder iCloud layout.
+
+- Reorganized `notebooks/01_eda.ipynb` into a lightweight CRISP-DM narrative:
+  Business Understanding, Data Understanding, Data Preparation Implications,
+  Modeling Implications, and Evaluation and Next Steps. Deployment is defined
+  as the later verified Kaggle submission rather than padded into the EDA.
+- Added modeling implications grounded in v1 evidence: CatBoost as the primary
+  baseline, one gradient-boosting challenger, fixed stratified folds, fold-safe
+  learned transforms, no drift correction, and no broad model zoo.
+- Analytical code is unchanged. The only code-cell edit is
+  `NOTEBOOK_VERSION = "v2"`, reserving the next trusted Kaggle run for this
+  narrative revision. The committed notebook remains output-free.
+- Clarified the render/export contract in `docs/0_coding_standards.md`: both
+  `renders/` and the repo's iCloud export contain exactly `docs/` and
+  `notebooks/`. The current renderer already implements this split, so no
+  export code changed.
+
+**Cursor handoff — work and run in this order:**
+
+1. Fix the archive-version guard identified in the preceding review before
+   pushing v2. The notebook may emit a structured JSON stamp, or the helper
+   may recognize both JSON and `NOTEBOOK_VERSION vN`; a mismatch must stop
+   before copying the log. Add a local regression check using
+   `assets/kernel_logs/kernel_v01_eda.log`.
+2. Validate notebook JSON, confirm outputs and execution counts are clear,
+   and confirm the only code change from v1 is the version stamp (plus any
+   structured run-summary stamp needed by step 1).
+3. Push the existing private CPU, internet-disabled EDA kernel with
+   `bash scripts/push_kaggle_kernel.sh eda`; do not make it public without a
+   separate decision. Wait for `COMPLETE` and inspect the run output.
+4. Archive the v2 log immediately, before any later push. Confirm the helper
+   proves the fetched log reports v2. Then fetch the v2 self-export and verify
+   its source matches the committed notebook and its cells have no errors.
+5. Render into the two local folders with the v2 self-export and archived v2
+   log, visually inspect the PDFs, then use `--export` to mirror exactly
+   `docs/` and `notebooks/` to iCloud.
+6. Append the v2 run evidence here and update `docs/2_eda_insights.md` only if
+   outputs differ. Keep the v1 evidence and history visible; do not rewrite
+   earlier log entries.
+
+The renderer's multi-notebook evidence-scoping defect does not block this
+single-notebook v2 run, but it must be fixed before `02_modeling.ipynb` is
+added or rendered.
