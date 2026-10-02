@@ -254,3 +254,10 @@ Followed the handoff above.
   24 cells / 228 KB). `docs/2_eda_insights.md` was not revised.
 - Render and iCloud export follow this entry. The multi-notebook render
   scoping defect is still open and still blocks `02_modeling.ipynb`.
+
+## 2026-10-02 — v2 PDF check
+
+Rendered `renders/notebooks/01_eda.pdf` from the v2 self-export (12 pages)
+and checked pages 1, 5, 8, and 12 as images. The score-0 scatter, the
+drift table, and the v2 summary are readable. The running header wraps
+the last word of the title. Exported both folders to iCloud.
