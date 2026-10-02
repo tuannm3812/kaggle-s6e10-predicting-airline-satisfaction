@@ -4,5 +4,5 @@
         competition files
         (kaggle competitions download -c playground-series-s6e10)
 
-Not downloaded yet. Verified facts, once they exist, belong in
-`docs/1_instructions.md`. Nothing in this folder is authoritative.
+Downloaded 2026-10-02. Verified facts belong in `docs/1_instructions.md`.
+Nothing in this folder is authoritative.

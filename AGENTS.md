@@ -14,9 +14,9 @@ Project-specific rules and deliberate overrides: @docs/0_coding_standards.md
 
 ## Read before changing anything
 
-@docs/1_instructions.md — joined and API facts recorded on 2026-10-02.
-Metric is **ROC AUC**. Column names, the target, and row counts are not
-verified until the files are downloaded. Do not invent them.
+@docs/1_instructions.md — joined on 2026-10-02. Metric is **ROC AUC**.
+Files were read the same day: target `satisfaction` (boolean, 44.36%
+positive), identifier `id`, submission is one probability per test row.
 
 ## Deltas from the master
 
@@ -36,10 +36,11 @@ Add them as `docs/2`–`docs/5` when that work happens. Do not renumber the log.
 
 ## Current state
 
-- Scaffold only, 2026-10-02. No data download, no notebook, no score.
+- Schema recorded 2026-10-02. No notebook and no score yet.
 
 ## Open risks
 
-- Target column and submission schema are unknown until `data/` is read.
+- Run logs still have no archive helper. Add it before a second kernel push
+  (Codex review, 2026-10-02). It does not block the first EDA run.
 - Mutable facts — leaderboard, public notebooks, quotas — must be re-checked
   live, never recalled.

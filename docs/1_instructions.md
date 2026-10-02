@@ -24,22 +24,65 @@ Anything that can move is timestamped; re-check it before relying on it.
 | Kernels-only submissions | `False` — file upload permitted | Kaggle API, 2026-10-02 |
 | Enabled | 2026-10-01 | Kaggle API, 2026-10-02 |
 
-## Files (names and sizes only)
+## Files
 
-From `kaggle competitions files` on 2026-10-02. Contents are not downloaded,
-so shapes, columns, and the target name are unknown.
+Downloaded into `data/` on **2026-10-02** and checked with pandas. The zip
+and CSVs stay gitignored.
 
-| File | Size | Created |
+| File | Shape | Notes |
 |---|---|---|
-| `train.csv` | 67,245,068 bytes | 2026-08-26 |
-| `test.csv` | 27,200,964 bytes | 2026-08-26 |
-| `sample_submission.csv` | 8,095,804 bytes | 2026-08-26 |
+| `train.csv` | 699,635 × 23 | `id` + 21 features + `satisfaction` |
+| `test.csv` | 299,844 × 22 | `id` + 21 features |
+| `sample_submission.csv` | 299,844 × 2 | `id`, `satisfaction` (float) |
 
 ## Task
 
-**Score probabilities with ROC AUC.** The positive class, the target column,
-and the submission header are not known until `sample_submission.csv` and
-`train.csv` are read. Do not guess them from the competition title.
+**Binary classification.** Predict the probability that `satisfaction` is
+true. The train target is a boolean (`True` 310,339 / `False` 389,296,
+positive rate 310,339 / 699,635 = 0.4435727201). `sample_submission.csv`
+carries that same constant as a probability, not a label. Checked: the
+sample value equals the train positive rate.
+
+## Data (verified 2026-10-02)
+
+- **Identifier:** `id`. Train `0..699634`, test `699635..999478`, both
+  contiguous, no overlap, no duplicate ids.
+- **No duplicate feature rows** in train or test (excluding `id` and,
+  for train, the target).
+- **Missing values:** `Arrival Delay in Minutes` only — 292 train, 130
+  test. Every other column is complete.
+- **Survey scores** are integers. Most run 0–5. `Baggage handling` runs
+  1–5. A 0 is present on the other survey columns (wifi 1.87% of train,
+  departure/arrival convenience 3.68%). Treat 0 as observed until EDA
+  says otherwise.
+- **Delays:** `Departure Delay in Minutes` is int, train 0–489, test
+  0–480. `Arrival Delay in Minutes` is float, train 0–491, test 0–471.
+  Test ranges sit inside train ranges.
+- **Other numeric:** `Age` 7–85, `Flight Distance` 67–4983. Test ranges
+  match train.
+
+**Categorical features** — train and test vocabularies match:
+
+| Feature | Levels (train counts) |
+|---|---|
+| `Gender` | Male 351,683 / Female 347,952 |
+| `Customer Type` | Loyal Customer 576,990 / disloyal Customer 122,645 |
+| `Type of Travel` | Business travel 497,441 / Personal Travel 202,194 |
+| `Class` | Business 342,212 / Eco 327,404 / Eco Plus 30,019 |
+
+## Submission format
+
+Header `id,satisfaction`, 299,844 rows, `id` ascending from 699,635, one
+probability per row.
+
+```
+id,satisfaction
+699635,0.4435727200611747
+699636,0.4435727200611747
+```
+
+`scripts/verify_submission.py` reads this schema from the official files.
+It does not hardcode `id`.
 
 ## Submission mechanism
 
@@ -60,7 +103,9 @@ Run `scripts/verify_submission.py` before that command.
 
 ## Still open
 
-- [ ] Download the three files into `data/` (gitignored).
-- [ ] Record shapes, columns, target, class balance, and the submission header.
+- [x] Download the three files into `data/` — **done** (2026-10-02).
+- [x] Record shapes, columns, target, class balance, and the submission header.
 - [ ] Quote Overview / Evaluation prose if it is ever pasted in.
 - [ ] Identify any original source dataset and its licence before using it.
+- [ ] EDA notebook. Nulls, the meaning of survey score 0, and class balance
+      by `Class` / `Type of Travel` are the first questions.

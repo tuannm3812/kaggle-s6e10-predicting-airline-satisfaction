@@ -11,12 +11,13 @@ Notebook-first workflow. Notebooks are the executable source of truth;
 
 ## Status
 
-**Scaffold only (2026-10-02).** No data download, no notebook, no score.
+**Schema recorded (2026-10-02).** No notebook and no score yet.
 
+- Task: probability that `satisfaction` is true.
 - Metric: **ROC AUC** (Kaggle API, 2026-10-02).
+- Train 699,635 rows; test 299,844 rows. Positive rate 44.36%.
 - Deadline: **2026-10-31 23:59 UTC**.
-- Target column and row counts: not verified. See
-  [`docs/1_instructions.md`](docs/1_instructions.md).
+- Detail: [`docs/1_instructions.md`](docs/1_instructions.md).
 
 ## Getting started
 

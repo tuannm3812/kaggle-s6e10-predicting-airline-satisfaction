@@ -58,9 +58,10 @@ push — Kaggle keeps only the latest run (master §12.1).
 - A new champion needs a paired comparison on aligned OOF predictions,
   with the criterion stated before the run. Record non-promotions too.
 
-The fold definition, the metric details, and any group key wait on the
-data. Do not assume stratification or a row id until `docs/1_instructions.md`
-records them from the files.
+The identifier is `id` and the target is boolean `satisfaction`, both
+recorded in `docs/1_instructions.md` on 2026-10-02. No group key has been
+established; do not invent one. The verifier derives the identifier from
+the official sample and test headers rather than hardcoding `id`.
 
 ## Submissions
 

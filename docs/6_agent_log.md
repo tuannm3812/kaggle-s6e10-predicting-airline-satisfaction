@@ -53,3 +53,24 @@ inside an uploaded notebook or metadata file, but resolving the CLI from
 **Not re-checked in this review:** live Kaggle API facts or CSV contents. No
 data was downloaded, so the original entry's unknowns remain unknown rather
 than being inferred.
+
+## 2026-10-02 — Schema recorded, verifier no longer assumes `id`
+
+Follow-up 1 from the review above.
+
+- Downloaded `playground-series-s6e10.zip` into `data/` (gitignored) and
+  read all three CSVs. **Checked:** train 699,635 × 23, test 299,844 × 22,
+  sample 299,844 × 2. The shared identifier is `id`. The only train-only
+  column is boolean `satisfaction` (310,339 true / 389,296 false). The
+  sample probability is constant and equals 310,339 / 699,635.
+- **Checked:** the only nulls are `Arrival Delay in Minutes` (292 train,
+  130 test). No duplicate feature rows. Test numeric ranges sit inside
+  train ranges. Categorical vocabularies match.
+- `scripts/verify_submission.py` now takes the identifier as the single
+  column shared by `sample_submission.csv` and `test.csv`. **Checked:**
+  the official sample passes against the official test; a copy whose
+  identifier is renamed `passenger_key` in both files also passes; the
+  old `usecols=["id"]` path is gone. A one-row id mismatch raises
+  `ValueError`.
+- Follow-up 2 is still open: no kernel-log archive helper yet. The review
+  says that blocks a second kernel push, not the first EDA run.
