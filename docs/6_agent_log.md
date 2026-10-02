@@ -353,3 +353,35 @@ Follow-ups from the review above.
 - **Checked:** OOF and test arrays are bit-identical to B01. Printed
   versions are lightgbm 4.6.0 and catboost 1.2.10, now pinned. B01's
   missing versions were not invented. No submission and no public kernel.
+
+## 2026-10-03 — Independent review of the two Cursor follow-ups
+
+Reviewed commits `2f33955` and `34d90ff` against the two findings in the
+preceding independent review. **No blocking finding remains.**
+
+- Renderer: target selection is now separate from evidence attachment.
+  An isolated end-to-end invocation of `--only notebooks --notebook
+  02_modeling` produced only `notebooks/02_modeling.pdf`; an unknown name
+  raised `SystemExit` with the expected mismatch message. The existing
+  evidence-scoping behavior still selects only the named notebook.
+- Provenance: the committed v2 notebook is output-free and differs from v1
+  only by its version stamp and environment-version imports/print. Its cell
+  sources match the 17-cell Kaggle self-export exactly, and that export has no
+  error outputs. The archived log is byte-identical to the freshly fetched
+  log, carries only stamp v2, and records Python 3.12.13, NumPy 2.0.2, pandas
+  2.3.3, scikit-learn 1.6.1, LightGBM 4.6.0, and CatBoost 1.2.10.
+- Reproduction: all four v2 OOF/test arrays pass `np.array_equal` against B01
+  with maximum absolute difference 0; the two `submission.csv` files are also
+  byte-identical. The v2 submission passes the official verifier again. The
+  live modeling kernel was re-checked as `COMPLETE` on 2026-10-03. No score,
+  promotion decision, submission, or privacy setting changed.
+- Fresh local checks passed for the archive guard, Python compilation, shell
+  syntax, and `git diff --check`.
+
+Non-blocking follow-up: the new `select_notebooks()` and
+`plan_notebook_renders()` seams are not covered by a committed automated
+regression test. The independent smoke test proves the current behavior, but
+a small test for named source-only, named evidence, unknown name, and
+multi-notebook evidence refusal would protect this previously regressed path.
+
+This review changed only this append-only log entry.
