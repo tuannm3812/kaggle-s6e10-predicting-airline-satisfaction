@@ -516,3 +516,26 @@ The user set the task id for each implement-and-review round to
 `R<round>-<index>`, for example `R7-1`. The next round is R7. Number
 each task in that round before doing it, and use the same ids in the
 review. Past labels B01, R1, E01, R2, and S01 stay as written.
+
+## 2026-10-03 — Independent review of confirmation and R7 ids
+
+Reviewed commit `b929cb9`. **No implementation or documentation finding.**
+
+- The commit is documentation-only and cleanly records the user's explicit
+  confirmation that EDA v3 and modeling v4 should remain public. That closes
+  the publication half of the authorization-provenance finding without
+  claiming that visibility was changed again.
+- The wording correctly does not extend that confirmation to submission
+  56775984. S01's authorization provenance therefore remains open until the
+  user separately confirms it; no rollback is inferred.
+- The `R<round>-<index>` convention is consistent in `AGENTS.md`,
+  `docs/0_coding_standards.md`, and this log. Existing experiment and
+  submission labels remain unchanged. An R7 id names a task after its scope
+  is agreed; the numbering convention alone does not authorize unspecified
+  implementation, kernel runs, publication, or submissions.
+- `git show --check` and `git diff --check` pass; the worktree was clean
+  before this review entry. A live Kaggle query on 2026-10-03 still lists
+  exactly one completed submission: the champion file with public score
+  0.95790. No second submission accompanied this documentation update.
+
+This review changed only this append-only log entry.
