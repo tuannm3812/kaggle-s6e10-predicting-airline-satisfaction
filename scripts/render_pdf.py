@@ -381,6 +381,41 @@ def run_logs_pdf(out_dir: Path) -> None:
     print(f"  renders/docs/9_run_logs.pdf ({len(logs)} runs)")
 
 
+def evidence_stems(notebooks: list[Path], notebook: str | None,
+                   wants_evidence: bool) -> set[str]:
+    """Decide which notebook receives a self-export or kernel log.
+
+    Args:
+        notebooks: Notebook paths that will be rendered.
+        notebook: Optional stem or filename from `--notebook`.
+        wants_evidence: True when a self-export or kernel log was passed.
+
+    Returns:
+        Stems that should receive that evidence. Empty when no evidence
+        was requested.
+
+    Raises:
+        SystemExit: When evidence is requested for an unknown notebook,
+            or for every notebook in a multi-notebook repo.
+    """
+    if not wants_evidence:
+        return set()
+    known = {path.stem for path in notebooks}
+    if notebook:
+        stem = Path(notebook).stem
+        if stem not in known:
+            raise SystemExit(
+                f"--notebook {stem} does not match any notebooks/*.ipynb"
+            )
+        return {stem}
+    if len(known) == 1:
+        return known
+    raise SystemExit(
+        "More than one notebook is present. Pass --notebook <name> so "
+        "the self-export and kernel log attach to one file."
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--only", choices=["docs", "notebooks"],
@@ -399,6 +434,11 @@ def main() -> None:
                              "(see assets/kernel_logs/ — a specific run's "
                              "log CANNOT be fetched, the API ignores the "
                              "version suffix)")
+    parser.add_argument("--notebook", metavar="NAME",
+                        help="notebook stem or filename that the "
+                             "self-export and kernel log belong to. "
+                             "Required once notebooks/ holds more than one "
+                             "notebook; otherwise the single notebook is used.")
     parser.add_argument("--export", action="store_true",
                         help="after rendering, copy renders/ to iCloud "
                              "Drive under 05_Projects/<category>/<repo>/")
@@ -431,19 +471,33 @@ def main() -> None:
         out.mkdir(parents=True, exist_ok=True)
         # Skip dotfiles: a staged copy left behind by an interrupted run
         # would otherwise be rendered as if it were a notebook.
-        for nb in sorted(p for p in (REPO / "notebooks").glob("*.ipynb")
-                         if not p.name.startswith(".")):
-            # An archived log names one specific run, so it only applies
-            # to the modeling notebook it came from.
-            archived = args.kernel_log if args.kernel_log else None
-            notebook_to_pdf(nb, out / f"{nb.stem}.pdf",
-                            with_log=args.with_kernel_log,
-                            archived_log=archived,
-                            executed_notebook=args.executed_notebook)
-            tag = (" (Kaggle self-export)" if args.executed_notebook
-                   else f" + {archived.name}" if archived
-                   else " + Kaggle run log (latest)" if args.with_kernel_log
-                   else " (source; runs live on Kaggle)")
+        notebooks = sorted(
+            p for p in (REPO / "notebooks").glob("*.ipynb")
+            if not p.name.startswith(".")
+        )
+        wants = bool(
+            args.executed_notebook or args.kernel_log or args.with_kernel_log
+        )
+        chosen = evidence_stems(notebooks, args.notebook, wants)
+        for nb in notebooks:
+            attach = nb.stem in chosen
+            archived = args.kernel_log if attach and args.kernel_log else None
+            notebook_to_pdf(
+                nb, out / f"{nb.stem}.pdf",
+                with_log=bool(attach and args.with_kernel_log),
+                archived_log=archived,
+                executed_notebook=(
+                    args.executed_notebook if attach else None
+                ),
+            )
+            if attach and args.executed_notebook:
+                tag = " (Kaggle self-export)"
+            elif archived:
+                tag = f" + {archived.name}"
+            elif attach and args.with_kernel_log:
+                tag = " + Kaggle run log (latest)"
+            else:
+                tag = " (source; runs live on Kaggle)"
             print(f"  renders/notebooks/{nb.stem}.pdf{tag}")
 
     if args.export:

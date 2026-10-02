@@ -30,15 +30,16 @@ positive), identifier `id`, submission is one probability per test row.
 
 - `docs/1_instructions.md` — task, metric, deadline, submission mechanism
 - `docs/2_eda_insights.md` — kernel v1 findings
+- `docs/3_implementation_plan.md` — fold F1, recipe, and the promotion rule
 - `docs/6_agent_log.md` — append-only session log; start here to catch up
 
-The plan, the ledger, and the submission manifest do not exist yet.
-Add them as `docs/3`–`docs/5`. Do not renumber the log.
+The ledger and the submission manifest do not exist yet. Add them as
+`docs/4` and `docs/5`. Do not renumber the log.
 
 ## Current state
 
-- EDA kernel v2 complete, 2026-10-02. Narrative revision; measurements
-  match v1 in `docs/2_eda_insights.md`. No model score yet.
+- Baseline pair predeclared 2026-10-02 in `docs/3_implementation_plan.md`.
+  No model score until the modeling kernel is archived.
 
 ## Open risks
 

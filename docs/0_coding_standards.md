@@ -95,9 +95,11 @@ After every kernel run, before the next push:
 python3 scripts/archive_kernel_log.py <version> <label> --kernel eda
 ```
 
-`scripts/render_pdf.py --executed-notebook <self-export> --export` writes
+`scripts/render_pdf.py --notebook <name> --executed-notebook <self-export> --export` writes
 PDFs under `renders/` (gitignored) and mirrors them to iCloud at
-`05_Projects/Kaggle/<repo>/`. Keep exactly two subfolders in both locations:
+`05_Projects/Kaggle/<repo>/`. `--notebook` is required once `notebooks/`
+holds more than one notebook, so a self-export or kernel log is not
+rendered under the wrong name. Keep exactly two subfolders in both locations:
 `docs/` and `notebooks/`. Documentation collections and run-log evidence go
 under `docs/`; notebook renders go under `notebooks/`. The self-export is the
 copy of `/kaggle/working/__notebook__.ipynb` made by the notebook's last cell.

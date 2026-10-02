@@ -4,11 +4,7 @@
 # Copies notebooks/<notebook> into notebooks/kernels/<target>/, then runs
 # `kaggle kernels push`. The copy is gitignored.
 #
-# Usage: scripts/push_kaggle_kernel.sh <eda>
-#
-# The eda target expects notebooks/01_eda.ipynb and
-# notebooks/kernels/eda/kernel-metadata.json. Neither exists until the
-# EDA notebook is added.
+# Usage: scripts/push_kaggle_kernel.sh <eda|modeling>
 
 set -euo pipefail
 
@@ -20,8 +16,12 @@ case "${1:-}" in
     NOTEBOOK="01_eda.ipynb"
     KERNEL_DIR="$NOTEBOOKS_DIR/kernels/eda"
     ;;
+  modeling)
+    NOTEBOOK="02_modeling.ipynb"
+    KERNEL_DIR="$NOTEBOOKS_DIR/kernels/modeling"
+    ;;
   *)
-    echo "Usage: $0 <eda>" >&2
+    echo "Usage: $0 <eda|modeling>" >&2
     exit 1
     ;;
 esac
