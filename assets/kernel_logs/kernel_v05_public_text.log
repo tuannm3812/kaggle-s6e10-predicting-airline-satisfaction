@@ -1,0 +1,53 @@
+[{"stream_name":"stderr","time":7.274423743,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.274468244,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.2744747610000005,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.27447958,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.975769292,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.975803773,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.975810065,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.975815398,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":14.917872411,"data":"python 3.12.13\n"}
+,{"stream_name":"stdout","time":14.91790396,"data":"{'numpy': '2.0.2', 'pandas': '2.3.3', 'sklearn': '1.6.1', 'lightgbm': '4.6.0'}\n"}
+,{"stream_name":"stdout","time":14.946112498,"data":"DATA_DIR /kaggle/input/competitions/playground-series-s6e10\n"}
+,{"stream_name":"stdout","time":14.946143387,"data":"OUT /kaggle/working\n"}
+,{"stream_name":"stdout","time":14.94614877,"data":"StratifiedKFold(5, shuffle=True, random_state=42). An added fit is kept only if its OOF AUC is higher and the mean fold gap is at least 0.0005.\n"}
+,{"stream_name":"stdout","time":18.815719688,"data":"(699635, 23) (299844, 22) positive 310339\n"}
+,{"stream_name":"stdout","time":18.815757624,"data":"zero indicators 12\n"}
+,{"stream_name":"stdout","time":20.333681256,"data":"fold 1 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":42.885591681,"data":"  lightgbm_500 trees 500 fold AUC 0.958354 seconds 22.5\n"}
+,{"stream_name":"stdout","time":65.277235265,"data":"  lightgbm_zero trees 500 fold AUC 0.958364 seconds 22.3\n"}
+,{"stream_name":"stdout","time":141.379518868,"data":"  lightgbm_capacity trees 2000 fold AUC 0.958507 seconds 76.1\n"}
+,{"stream_name":"stdout","time":142.423595267,"data":"fold 2 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":164.57771752,"data":"  lightgbm_500 trees 500 fold AUC 0.957139 seconds 22.1\n"}
+,{"stream_name":"stdout","time":187.290231419,"data":"  lightgbm_zero trees 500 fold AUC 0.957139 seconds 22.7\n"}
+,{"stream_name":"stdout","time":263.244476496,"data":"  lightgbm_capacity trees 2000 fold AUC 0.957169 seconds 75.9\n"}
+,{"stream_name":"stdout","time":264.249928752,"data":"fold 3 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":286.054139316,"data":"  lightgbm_500 trees 500 fold AUC 0.959047 seconds 21.8\n"}
+,{"stream_name":"stdout","time":308.168859983,"data":"  lightgbm_zero trees 500 fold AUC 0.959020 seconds 22.1\n"}
+,{"stream_name":"stdout","time":383.460082395,"data":"  lightgbm_capacity trees 2000 fold AUC 0.959000 seconds 75.2\n"}
+,{"stream_name":"stdout","time":384.449928823,"data":"fold 4 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":406.873491026,"data":"  lightgbm_500 trees 500 fold AUC 0.958410 seconds 22.4\n"}
+,{"stream_name":"stdout","time":429.698481462,"data":"  lightgbm_zero trees 500 fold AUC 0.958410 seconds 22.8\n"}
+,{"stream_name":"stdout","time":506.89017933,"data":"  lightgbm_capacity trees 2000 fold AUC 0.958352 seconds 77.1\n"}
+,{"stream_name":"stdout","time":507.850659771,"data":"fold 5 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":530.199732672,"data":"  lightgbm_500 trees 500 fold AUC 0.958740 seconds 22.3\n"}
+,{"stream_name":"stdout","time":552.836410484,"data":"  lightgbm_zero trees 500 fold AUC 0.958740 seconds 22.6\n"}
+,{"stream_name":"stdout","time":629.963358469,"data":"  lightgbm_capacity trees 2000 fold AUC 0.958580 seconds 77.1\n"}
+,{"stream_name":"stdout","time":630.175453592,"data":"lightgbm_500 OOF 0.958331 fold mean 0.958338 fold std 0.000649 seconds 111.1\n"}
+,{"stream_name":"stdout","time":630.388995867,"data":"lightgbm_zero OOF 0.958328 fold mean 0.958335 fold std 0.000643 seconds 112.4\n"}
+,{"stream_name":"stdout","time":630.401952287,"data":"lightgbm_capacity OOF 0.958315 fold mean 0.958322 fold std 0.000615 seconds 381.4\n"}
+,{"stream_name":"stdout","time":631.053897501,"data":"lightgbm_zero OOF 0.958328 mean fold gap -0.000004 kept False\n"}
+,{"stream_name":"stdout","time":631.286210312,"data":"lightgbm_capacity OOF 0.958315 mean fold gap -0.000017 kept False\n"}
+,{"stream_name":"stdout","time":631.286247635,"data":"selected lightgbm_500\n"}
+,{"stream_name":"stdout","time":631.286254392,"data":"NOTEBOOK_VERSION v5\n"}
+,{"stream_name":"stdout","time":631.726248896,"data":"wrote submission.csv 299844\n"}
+,{"stream_name":"stdout","time":631.753673467,"data":"saved executed_notebook.ipynb — 17 cells, 5 with outputs, 26 KB\n"}
+,{"stream_name":"stderr","time":635.172801526,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":635.172840991,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":635.353103248,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":635.353130971,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":636.113913738,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":636.526014296,"data":"[NbConvertApp] Writing 25162 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":639.723765146,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":640.812620172,"data":"[NbConvertApp] Writing 332584 bytes to __results__.html\n"}
+]

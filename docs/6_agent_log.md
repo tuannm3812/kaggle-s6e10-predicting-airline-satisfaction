@@ -554,3 +554,10 @@ pass those survey columns in as categories, keep the 500-tree LightGBM
 and the same folds, and require the same 0.0005 mean fold gap against
 the current LightGBM out-of-fold vector. It would not be submitted
 unless that gap is met and the user confirms a new submission.
+
+R7-1 ran as EDA kernel v4 and modeling kernel v5. Logs:
+`assets/kernel_logs/kernel_v04_eda_public_text.log` and
+`assets/kernel_logs/kernel_v05_public_text.log`. Both self-exports match
+the committed source and have no error outputs. The 500-tree OOF and
+test vectors are bit-identical to the submitted LightGBM file, and
+`submission.csv` is byte-identical to the v4 file. No submission.

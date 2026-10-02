@@ -77,3 +77,15 @@ All six OOF and test arrays are bit-identical to v3 (`np.array_equal`,
 max absolute difference 0). `submission.csv` is byte-identical to the
 submitted v3 file. This row does not change the champion or the public
 score.
+
+## R7-1 — public text only
+
+EDA kernel v4, notebook v4, and modeling kernel v5, notebook v5,
+2026-10-03. Public CPU, internet disabled. Logs:
+`assets/kernel_logs/kernel_v04_eda_public_text.log` and
+`assets/kernel_logs/kernel_v05_public_text.log`.
+
+The notebook prose no longer carries process notes. The 500-tree OOF
+and test vectors remain bit-identical to B01 LightGBM, and
+`submission.csv` remains byte-identical to the submitted file. This
+row does not change the champion or the public score.
