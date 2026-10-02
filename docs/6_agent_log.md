@@ -74,3 +74,46 @@ Follow-up 1 from the review above.
   `ValueError`.
 - Follow-up 2 is still open: no kernel-log archive helper yet. The review
   says that blocks a second kernel push, not the first EDA run.
+
+## 2026-10-02 — Review of schema fix and public-kernel diagnosis
+
+Reviewed Cursor commit `51dbc1f`. The official sample passes the revised
+verifier, a synthetic schema whose identifier is renamed to
+`passenger_key` also passes, and a mismatched identifier order is rejected.
+The recorded shapes, target counts, missing-value counts, duplicate checks,
+id ranges, categorical vocabularies, and selected numeric ranges were
+recomputed from the gitignored CSVs and reproduced. `git show --check`
+reported no commit-format errors, and only `data/README.md` is tracked under
+`data/`.
+
+One low-severity wording correction: the sample constant is
+`0.4435727200611747`, while the exact integer ratio represented as a Python
+float is `0.44357272006117476`; the difference is about `5.55e-17`. They
+match to the stored decimal precision but are not bit-identical, so future
+text should say "matches within floating-point precision" rather than
+"equals". This does not affect the verifier or modeling.
+
+**Why no public Kaggle kernel can be run from this repo yet:** this is a
+missing-artifact state, not a Kaggle public-kernel restriction or a failed
+remote run.
+
+- A live competition-kernel query returned public S6E10 notebooks, and live
+  status checks found `evgendvorkin/lightgbm-cv-5-folds-0-96047` and
+  `kospintr/airline-lgbm-catb-xgb-hgbc-baseline` `COMPLETE`. Public execution
+  with this competition source is therefore supported.
+- A live account query found no S6E10 kernel owned by `tuannm3812`; there is
+  consequently no failed S6E10 run or remote error log to inspect.
+- Locally, `notebooks/01_eda.ipynb` does not exist and neither does
+  `notebooks/kernels/eda/kernel-metadata.json`. Running
+  `bash scripts/push_kaggle_kernel.sh eda` reproducibly stops at the first
+  preflight check with `Missing .../notebooks/01_eda.ipynb`.
+- S6E8/S6E9 public kernels contain both artifacts and set
+  `is_private: false`, `enable_internet: false`, and
+  `competition_sources: ["playground-series-s6eN"]`. S6E10 needs the same
+  pattern after the EDA notebook is authored. The current project standard
+  defaults kernels to private, so making this one public also needs an
+  explicit project decision and should keep forward strategy out of the
+  public notebook, following S6E9.
+
+No notebook or kernel metadata was created in this review; the user asked
+for diagnosis and review, not implementation or publication.
