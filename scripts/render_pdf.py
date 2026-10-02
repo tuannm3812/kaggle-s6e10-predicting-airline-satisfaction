@@ -381,12 +381,36 @@ def run_logs_pdf(out_dir: Path) -> None:
     print(f"  renders/docs/9_run_logs.pdf ({len(logs)} runs)")
 
 
-def evidence_stems(notebooks: list[Path], notebook: str | None,
-                   wants_evidence: bool) -> set[str]:
-    """Decide which notebook receives a self-export or kernel log.
+def select_notebooks(notebooks: list[Path], notebook: str | None) -> list[Path]:
+    """Choose which notebooks to render.
 
     Args:
-        notebooks: Notebook paths that will be rendered.
+        notebooks: Every notebook under notebooks/.
+        notebook: Optional stem or filename from `--notebook`.
+
+    Returns:
+        The named notebook, or every notebook when no name is given.
+
+    Raises:
+        SystemExit: When the name matches nothing.
+    """
+    if notebook is None:
+        return notebooks
+    stem = Path(notebook).stem
+    chosen = [path for path in notebooks if path.stem == stem]
+    if not chosen:
+        raise SystemExit(
+            f"--notebook {stem} does not match any notebooks/*.ipynb"
+        )
+    return chosen
+
+
+def evidence_stems(notebooks: list[Path], notebook: str | None,
+                   wants_evidence: bool) -> set[str]:
+    """Decide which of the selected notebooks receives run evidence.
+
+    Args:
+        notebooks: Notebooks already chosen for rendering.
         notebook: Optional stem or filename from `--notebook`.
         wants_evidence: True when a self-export or kernel log was passed.
 
@@ -395,8 +419,8 @@ def evidence_stems(notebooks: list[Path], notebook: str | None,
         was requested.
 
     Raises:
-        SystemExit: When evidence is requested for an unknown notebook,
-            or for every notebook in a multi-notebook repo.
+        SystemExit: When evidence would attach to every notebook in a
+            multi-notebook selection, or the name is not in the selection.
     """
     if not wants_evidence:
         return set()
@@ -414,6 +438,27 @@ def evidence_stems(notebooks: list[Path], notebook: str | None,
         "More than one notebook is present. Pass --notebook <name> so "
         "the self-export and kernel log attach to one file."
     )
+
+
+def plan_notebook_renders(
+    notebooks: list[Path],
+    notebook: str | None,
+    wants_evidence: bool,
+) -> list[tuple[Path, bool]]:
+    """Pair each notebook to render with whether it receives evidence.
+
+    Args:
+        notebooks: Every notebook under notebooks/.
+        notebook: Optional stem or filename from `--notebook`.
+        wants_evidence: True when a self-export or kernel log was passed.
+
+    Returns:
+        `(path, attach_evidence)` rows. A named source-only render is one
+        row with attach_evidence False.
+    """
+    targets = select_notebooks(notebooks, notebook)
+    chosen = evidence_stems(targets, notebook, wants_evidence)
+    return [(path, path.stem in chosen) for path in targets]
 
 
 def main() -> None:
@@ -435,10 +480,11 @@ def main() -> None:
                              "log CANNOT be fetched, the API ignores the "
                              "version suffix)")
     parser.add_argument("--notebook", metavar="NAME",
-                        help="notebook stem or filename that the "
-                             "self-export and kernel log belong to. "
-                             "Required once notebooks/ holds more than one "
-                             "notebook; otherwise the single notebook is used.")
+                        help="render this notebook stem or filename. "
+                             "Required when attaching a self-export or "
+                             "kernel log and notebooks/ holds more than one "
+                             "notebook. Without evidence, it renders that "
+                             "notebook from source and leaves the others.")
     parser.add_argument("--export", action="store_true",
                         help="after rendering, copy renders/ to iCloud "
                              "Drive under 05_Projects/<category>/<repo>/")
@@ -478,14 +524,8 @@ def main() -> None:
         wants = bool(
             args.executed_notebook or args.kernel_log or args.with_kernel_log
         )
-        chosen = evidence_stems(notebooks, args.notebook, wants)
-        # Re-rendering every notebook would replace an already executed
-        # PDF with source. When the caller names one notebook, only that
-        # file is written.
-        if args.notebook:
-            notebooks = [nb for nb in notebooks if nb.stem in chosen]
-        for nb in notebooks:
-            attach = nb.stem in chosen
+        planned = plan_notebook_renders(notebooks, args.notebook, wants)
+        for nb, attach in planned:
             archived = args.kernel_log if attach and args.kernel_log else None
             notebook_to_pdf(
                 nb, out / f"{nb.stem}.pdf",
