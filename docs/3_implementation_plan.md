@@ -68,3 +68,51 @@ Archive the kernel log before the next push. Render with
 `--notebook 02_modeling`. Run `scripts/verify_submission.py` on the
 champion file. A leaderboard submission waits until that check passes
 and is a separate decision.
+
+## E01 — zero indicators against capacity
+
+Written **2026-10-03**, before the E01 fit. B01 already promoted
+LightGBM (F1 OOF AUC 0.958331). CatBoost OOF correlates 0.997415 with
+that champion, so this phase does not blend them and does not refit
+CatBoost.
+
+Same fold definition F1. Same arrival-delay recipe. Survey zeros stay
+observed scores. Three LightGBM fits, seed 42, learning rate 0.05,
+otherwise library defaults, `n_jobs=-1`:
+
+| Arm | Features | Trees |
+| --- | --- | --- |
+| `lightgbm_control` | B01 champion recipe | 500 |
+| `lightgbm_zero` | Control, plus one `__is_zero` indicator per survey column that contains 0 | 500 |
+| `lightgbm_capacity` | Control features, no zero indicators | 2,000 |
+
+The indicator columns, named here before the fit, are `Inflight wifi
+service`, `Departure/Arrival time convenient`, `Ease of Online booking`,
+`Gate location`, `Food and drink`, `Online boarding`, `Seat comfort`,
+`Inflight entertainment`, `On-board service`, `Leg room service`,
+`Checkin service`, and `Cleanliness`. Each indicator is
+`(score == 0)` on that row. `Baggage handling` is excluded because its
+minimum is 1. Delay columns are excluded because 0 is a measured delay,
+not a survey code. Indicators are not fit inside the fold.
+
+An arm replaces the control only when both are true on this run's
+aligned F1 predictions:
+
+1. Its overall OOF ROC AUC is higher than `lightgbm_control`.
+2. The mean of the five paired fold differences (arm minus control) is
+   at least **0.0005**.
+
+If both arms clear that bar, the higher overall OOF AUC is the
+candidate. If neither clears it, the standing champion stays the B01
+LightGBM file.
+
+The control is a refit of B01, not a new model. After the kernel
+finishes, compare `oof_lightgbm_control.npy` with
+`predictions/oof_lightgbm.npy`. Promotion of either new arm is void
+unless that comparison is bit-identical. A mismatch stops a new
+submission; the already verified B01 file remains the champion.
+
+No GPU. The kernel stays private until the gate is recorded. One
+leaderboard file is submitted after `scripts/verify_submission.py`
+passes: the gated candidate, or the standing B01 file if neither arm
+clears the bar.

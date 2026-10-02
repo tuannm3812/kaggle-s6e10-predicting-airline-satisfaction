@@ -41,6 +41,8 @@ file is submitted. Do not renumber the log.
 
 - Champion LightGBM, F1 OOF AUC 0.958331, kernel modeling v1 on
   2026-10-02. Not submitted. See `docs/4_experiment_ledger.md`.
+- E01 was predeclared on 2026-10-03 and is not a result until the ledger
+  says so. It does not blend CatBoost with LightGBM.
 
 ## Open risks
 

@@ -385,3 +385,20 @@ a small test for named source-only, named evidence, unknown name, and
 multi-notebook evidence refusal would protect this previously regressed path.
 
 This review changed only this append-only log entry.
+
+## 2026-10-03 — E01 predeclared before the fit
+
+The 2026-10-03 review's non-blocking follow-up is covered by
+`scripts/test_render_plan.py`: named source-only, named evidence,
+unknown name, multi-notebook evidence refusal, and the single-notebook
+evidence case. `python3.11 scripts/test_render_plan.py` passed, 5 tests.
+
+B01 CatBoost and LightGBM OOF vectors correlate 0.997415 (mean absolute
+difference 0.015355). A blend is not the next experiment. E01, written
+into `docs/3_implementation_plan.md` before the notebook push, is three
+LightGBM arms on F1: the 500-tree control, the same budget plus twelve
+survey `__is_zero` indicators, and 2,000 trees on the control features.
+Promotion margin stays 0.0005 against the control. A new arm is void
+unless the control OOF is bit-identical to `predictions/oof_lightgbm.npy`.
+CatBoost is not refit. GPU stays off. The modeling kernel stays private
+for this run.
