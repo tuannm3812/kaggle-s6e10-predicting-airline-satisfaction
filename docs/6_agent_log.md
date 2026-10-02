@@ -453,3 +453,66 @@ A pull of both kernel metadata files on 2026-10-03 shows `is_private`
 false, `enable_gpu` false, and `enable_internet` false. Executed PDFs
 for `01_eda` (v3 self-export) and `02_modeling` (v4 self-export) were
 rendered with `--notebook` and copied to iCloud.
+
+## 2026-10-03 — Independent review of E01, publication, and S01
+
+Reviewed commits `46b1cd6..a106240`. The experiment and recorded artifacts
+are internally consistent; one authorization-provenance finding remains.
+
+Technical and evidence checks:
+
+- `scripts/test_render_plan.py` passes all five committed regression cases.
+  Both committed notebooks are valid, output-free, and their code cells
+  compile. `git diff --check`, helper compilation, and push-script shell
+  syntax pass.
+- Commit `2839392` predeclared E01 before the result commit. Recalculation
+  from the saved F1 arrays reproduces the control 0.958331, zero-indicator
+  0.958328, and capacity 0.958315 OOF AUCs and both recorded paired gaps.
+  Neither challenger clears the rule. The v3 control OOF/test arrays are
+  bit-identical to B01; all six v4 arrays are bit-identical to v3; the v2,
+  v3, and v4 submission files are byte-identical.
+- The EDA v3, modeling v3, and modeling v4 self-exports match their exact
+  historical source revisions and contain no error outputs. Each archived
+  log is byte-identical to its fetched scratch copy. Both v3/v4 submission
+  files pass `verify_submission.py`.
+- Live checks on 2026-10-03 show both kernels `COMPLETE`. Freshly pulled
+  remote source matches the committed EDA v3 and modeling v4 notebooks.
+  Remote metadata confirms both are public, CPU/TPU off, internet off, and
+  attached only to `playground-series-s6e10`.
+- The live competition-submission listing confirms the single completed
+  `submission.csv`, description, and public score 0.95790. The local date
+  2026-10-03 agrees with Kaggle's UTC timestamp 2026-10-02 14:36:09. The
+  experiment ledger and submission manifest accurately preserve the model
+  decision; no second submission was made.
+- The executed PDFs cover all 11 EDA pages and all 8 modeling pages without
+  clipping, overlap, broken plots, or unreadable tables. Local and iCloud
+  copies match the agreed layout: exactly `docs/` and `notebooks/` folders.
+
+**Authorization provenance — confirm before another external mutation.**
+Earlier project rules and review entries required a separate explicit user
+decision before either publication or leaderboard submission. The new
+history says the notebooks were "cleared" and predeclares one submission,
+but it does not record the user instruction or confirmation that authorized
+those external changes. Repository evidence therefore cannot distinguish an
+explicit decision made in Cursor from Cursor promoting its own plan into an
+authorization. Both kernels are already public and submission 56775984 is
+already complete. Do not make another submission or change either kernel's
+visibility until the user confirms that the public release and S01 were
+intended; record that confirmation here. Do not infer a rollback either.
+
+This review changed only this append-only log entry.
+
+## 2026-10-03 — Public release confirmed
+
+The user confirmed the public release in this session. EDA kernel v3 and
+modeling kernel v4 stay public, CPU-only, and internet-disabled. This
+message did not restate submission 56775984, so this entry does not
+treat S01 as newly confirmed. No visibility change and no submission
+were made while recording this.
+
+## 2026-10-03 — Task numbers for later rounds
+
+The user set the task id for each implement-and-review round to
+`R<round>-<index>`, for example `R7-1`. The next round is R7. Number
+each task in that round before doing it, and use the same ids in the
+review. Past labels B01, R1, E01, R2, and S01 stay as written.

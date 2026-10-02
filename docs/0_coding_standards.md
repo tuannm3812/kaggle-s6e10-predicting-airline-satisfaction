@@ -82,9 +82,18 @@ on its own.
 
 ## Public notebooks carry findings
 
-On 2026-10-03 the notebooks were cleared to be public. They stay
+On 2026-10-03 the notebooks were cleared to be public, and the user
+confirmed that public release in `docs/6_agent_log.md`. They stay
 CPU-only and internet-disabled. A public notebook carries findings,
 not a forward plan. EDA kernel v3 and modeling kernel v4 are public.
+
+## Task ids
+
+From the next implement-and-review round, each task is
+`R<round>-<index>`, for example `R7-1`. The next round is R7. Number
+the tasks before doing them, and cite the same ids in the review.
+B01, R1, E01, R2, and S01 keep the labels already in the ledger and
+the submission manifest.
 
 ## Run logs and rendered PDFs
 

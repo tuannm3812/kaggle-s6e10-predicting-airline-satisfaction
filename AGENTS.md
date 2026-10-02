@@ -42,6 +42,9 @@ positive), identifier `id`, submission is one probability per test row.
   `docs/4_experiment_ledger.md` and `docs/5_submission_manifest.md`.
 - E01 did not promote the zero-indicator arm or the 2,000-tree arm.
   The control refit is bit-identical to B01.
+- The user confirmed the public release on 2026-10-03. The next
+  implement-and-review round is R7, with tasks `R7-1`, `R7-2`, and so
+  on. See `docs/0_coding_standards.md`.
 
 ## Open risks
 
