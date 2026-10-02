@@ -284,3 +284,58 @@ before any later push.
   range 0.003021–0.989561. Not submitted.
 - Numbers are in `docs/4_experiment_ledger.md`. OOF and test matrices are
   in gitignored `predictions/`.
+
+## 2026-10-02 — Independent review of Cursor's CRISP-DM and baseline work
+
+Reviewed commits `347b8ab..36a7ce3` after the Cursor handoff. The live
+modeling kernel `tuannm3812/airline-satisfaction-modeling` is still
+`COMPLETE`; both kernel metadata files remain private, CPU-only, and
+internet-disabled. No public release or leaderboard submission was made.
+
+The baseline evidence is internally consistent:
+
+- Commit `ccd5a7a` predeclared F1, the fold-safe feature recipe, model
+  budgets, and the 0.0005 promotion margin before commit `7d8e966` recorded
+  the run.
+- The committed modeling notebook is output-free. Its 17 cell sources match
+  the Kaggle self-export exactly; the self-export has no error outputs.
+- A fresh calculation from the saved OOF vectors reproduces every recorded
+  fold AUC and the overall CatBoost 0.957696 and LightGBM 0.958331 AUCs. The
+  mean paired fold gap is 0.000633, so the recorded LightGBM promotion follows
+  the predeclared rule.
+- All four arrays under gitignored `predictions/` are byte-identical to the
+  copies fetched from the run. All four categorical vocabularies are present
+  in every F1 training/validation split and test, so independently constructed
+  pandas categorical dtypes do not change category membership in this run.
+- The champion `submission.csv` again passes `verify_submission.py`: 299,844
+  rows, 299,589 unique probabilities, range 0.003021–0.989561. The archive
+  guard self-check, Python compilation (with bytecode cache redirected to
+  `/private/tmp`), shell syntax, and `git diff --check` also pass.
+
+Two follow-ups remain:
+
+1. **Fix the named source-only render path.** Commit `36a7ce3` correctly
+   scopes a self-export/log to the requested notebook, but
+   `evidence_stems()` returns an empty set whenever no evidence argument is
+   supplied. `main()` then filters the notebook list by that empty set.
+   Consequently `python3 scripts/render_pdf.py --only notebooks --notebook
+   02_modeling` exits 0, prints nothing, and writes no notebook PDF; an unknown
+   `--notebook` is also silently accepted in this mode. Separate notebook
+   target selection/validation from evidence attachment, and cover named
+   rendering both with and without evidence. This does not invalidate the
+   existing executed-notebook render path.
+2. **Capture the modeling-library environment on the next trusted run.** The
+   notebook log prints Python, NumPy, and pandas only. `requirements.txt`
+   leaves both `lightgbm` and `catboost` unpinned, while B01 deliberately uses
+   LightGBM library defaults. The archived evidence therefore cannot identify
+   the exact versions behind the score. Print at least scikit-learn,
+   LightGBM, and CatBoost versions in the notebook and record/pin the versions
+   observed on Kaggle after the next trusted run. Do not invent versions for
+   B01; retain this as a limitation of that run.
+
+Cursor can implement those two bounded workflow fixes next. A notebook edit
+must increment its notebook version and be run on Kaggle before any new result
+is treated as trusted. There is no reason to submit or make either kernel
+public as part of these fixes.
+
+This review changed only this append-only log entry.
