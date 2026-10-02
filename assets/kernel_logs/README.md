@@ -7,3 +7,4 @@ Kaggle serves only the current run (master standard §12.1).
 
 | File | Kernel | Notebook | What it recorded |
 | --- | --- | --- | --- |
+| `kernel_v01_eda.log` | v1 | v1 | EDA: schema, score 0, drift, adversarial AUC 0.5004 |

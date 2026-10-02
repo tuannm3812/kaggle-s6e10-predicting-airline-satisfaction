@@ -117,3 +117,20 @@ remote run.
 
 No notebook or kernel metadata was created in this review; the user asked
 for diagnosis and review, not implementation or publication.
+
+## 2026-10-02 — EDA kernel v1, CPU, private
+
+Follow-up from the review above: the missing notebook was the blocker.
+
+- Authored `notebooks/01_eda.ipynb` and private CPU metadata
+  `tuannm3812/airline-satisfaction-eda`. Internet disabled. GPU left off:
+  the job is pandas, a few plots, and one subsample classifier.
+- Pushed kernel version 1. Status reached `COMPLETE`. **Checked** against
+  `assets/kernel_logs/kernel_v01_eda.log`: shapes and the 310,339 positive
+  count match the local read; sample-versus-rate gap is `5.551e-17`;
+  arrival-delay nulls are 292 / 130; adversarial OOF AUC 0.5004 on the
+  declared 200,000-row subsample; self-export wrote 24 cells, 11 with
+  outputs, 3 figures, 0 errors.
+- Log archived before any later push. PDF render is the next local step
+  and uses that self-export, not a local re-run.
+- The kernel stays private. Public release was not requested.

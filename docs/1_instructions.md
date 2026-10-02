@@ -109,5 +109,5 @@ Run `scripts/verify_submission.py` before that command.
 - [x] Record shapes, columns, target, class balance, and the submission header.
 - [ ] Quote Overview / Evaluation prose if it is ever pasted in.
 - [ ] Identify any original source dataset and its licence before using it.
-- [ ] EDA notebook. Nulls, the meaning of survey score 0, and class balance
-      by `Class` / `Type of Travel` are the first questions.
+- [x] EDA notebook — kernel v1, 2026-10-02. Findings in
+      [`2_eda_insights.md`](2_eda_insights.md).

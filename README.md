@@ -11,7 +11,7 @@ Notebook-first workflow. Notebooks are the executable source of truth;
 
 ## Status
 
-**Schema recorded (2026-10-02).** No notebook and no score yet.
+**EDA complete on Kaggle (kernel v1, 2026-10-02).** No model score yet.
 
 - Task: probability that `satisfaction` is true.
 - Metric: **ROC AUC** (Kaggle API, 2026-10-02).

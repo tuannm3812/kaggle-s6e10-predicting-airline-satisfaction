@@ -29,15 +29,16 @@ positive), identifier `id`, submission is one probability per test row.
 ## Evidence locations
 
 - `docs/1_instructions.md` — task, metric, deadline, submission mechanism
+- `docs/2_eda_insights.md` — kernel v1 findings
 - `docs/6_agent_log.md` — append-only session log; start here to catch up
 
-EDA, the plan, the ledger, and the submission manifest do not exist yet.
-Add them as `docs/2`–`docs/5` when that work happens. Do not renumber the log.
+The plan, the ledger, and the submission manifest do not exist yet.
+Add them as `docs/3`–`docs/5`. Do not renumber the log.
 
 ## Current state
 
-- EDA notebook authored 2026-10-02. Trusted numbers come from the Kaggle
-  run, then `docs/2_eda_insights.md`. No score yet.
+- EDA kernel v1 complete, 2026-10-02. Findings in `docs/2_eda_insights.md`.
+  No model score yet.
 
 ## Open risks
 
