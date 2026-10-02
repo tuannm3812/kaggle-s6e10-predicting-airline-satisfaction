@@ -1,0 +1,36 @@
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+
+# Kaggle data, including partial-download temp files left by an
+# interrupted `kaggle competitions download`.
+data/*
+!data/README.md
+
+# Generated artifacts
+predictions/*
+!predictions/README.md
+submission.csv
+scratch/
+
+# Staged notebook copies for scripts/push_kaggle_kernel.sh.
+# notebooks/*.ipynb is the source of truth.
+notebooks/kernels/*/*.ipynb
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local render output
+renders/

@@ -1,0 +1,13 @@
+# Unpinned until the first trusted Kaggle kernel run. After that, pin the
+# versions that kernel printed and update this file with the kernel version.
+numpy
+pandas
+scikit-learn
+scipy
+matplotlib
+seaborn
+lightgbm
+catboost
+jupyter
+ipykernel
+kaggle
