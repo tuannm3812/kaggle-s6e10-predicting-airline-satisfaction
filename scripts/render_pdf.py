@@ -201,9 +201,21 @@ def md_to_pdf(sources: list[Path], pdf: Path, title: str,
             prov = git_provenance(sources[0])
         else:
             prov = ""
+        # Typst resolves a relative theme path from this template and,
+        # on this repo's path, reports the file missing even though it
+        # is beside the template. An absolute path compiles. The rewrite
+        # stays in the temp copy so the repo template stays portable.
+        theme = (template.parent / "code-style.tmTheme").resolve()
+        rewritten = []
+        for line in template.read_text().splitlines():
+            if line.startswith("#let CODE_THEME"):
+                line = f"#let CODE_THEME = {_typ_str(str(theme))}"
+            rewritten.append(line)
+        local_template = Path(td) / "project-doc.typ"
+        local_template.write_text("\n".join(rewritten) + "\n")
         main = Path(td) / "main.typ"
         main.write_text(
-            f'#import "{template}": *\n'
+            f'#import "{local_template}": *\n'
             f"#show: doc => conf(project: {_typ_str(PROJECT)}, "
             f"kind: {_typ_str(kind)}, title: {_typ_str(title)}, "
             f"provenance: {_typ_str(prov)}, doc)\n\n"
