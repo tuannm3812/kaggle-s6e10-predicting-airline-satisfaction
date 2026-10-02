@@ -412,3 +412,23 @@ Data-preparation findings stay. `notebooks/kernels/eda/kernel-metadata.json`
 sets `is_private` false, with GPU and internet still off. The modeling
 kernel is unchanged and still private. This entry is written before the
 public EDA push; the v3 log is not archived yet.
+
+## 2026-10-03 — E01 result and first submission
+
+Modeling kernel v3 completed. Log archived as
+`assets/kernel_logs/kernel_v03_e01_lightgbm.log` before any later
+modeling push. The self-export matches the 17-cell source and has no
+error outputs. Control OOF and test arrays are bit-identical to B01
+LightGBM. Zero OOF 0.958328 (mean gap −0.000004) and capacity OOF
+0.958315 (mean gap −0.000017) both miss the 0.0005 bar. Champion
+unchanged.
+
+`scripts/verify_submission.py` passed on the v3 `submission.csv`, which
+is byte-identical to the v2 file. Submitted kernel version 3. Kaggle
+ref 56775984, status COMPLETE, public score 0.95790. Private score was
+not returned. Nine submissions remained.
+
+EDA kernel v3 also completed and was archived as
+`assets/kernel_logs/kernel_v03_eda_public.log`. Source matches, no
+error outputs. The log still prints Online boarding AUC 0.8404 and
+adversarial OOF AUC 0.5004, and `NOTEBOOK_VERSION v3`.

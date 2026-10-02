@@ -32,24 +32,23 @@ positive), identifier `id`, submission is one probability per test row.
 - `docs/2_eda_insights.md` — kernel v1 findings
 - `docs/3_implementation_plan.md` — fold F1, recipe, and the promotion rule
 - `docs/4_experiment_ledger.md` — every comparable run
+- `docs/5_submission_manifest.md` — leaderboard files
 - `docs/6_agent_log.md` — append-only session log; start here to catch up
-
-The submission manifest does not exist yet. Add it as `docs/5` when a
-file is submitted. Do not renumber the log.
 
 ## Current state
 
-- Champion LightGBM, F1 OOF AUC 0.958331, kernel modeling v1 on
-  2026-10-02. Not submitted. See `docs/4_experiment_ledger.md`.
-- E01 was predeclared on 2026-10-03 and is not a result until the ledger
-  says so. It does not blend CatBoost with LightGBM.
+- Champion LightGBM, F1 OOF AUC 0.958331. Public score 0.95790 on
+  2026-10-03, submission 56775984, modeling kernel v3. See
+  `docs/4_experiment_ledger.md` and `docs/5_submission_manifest.md`.
+- E01 did not promote the zero-indicator arm or the 2,000-tree arm.
+  The control refit is bit-identical to B01.
 
 ## Open risks
 
 - Archive the kernel log after every run, before the next push. Kaggle
   keeps only the latest log (master §12.1).
 - Public notebooks stay CPU-only and internet-disabled, and they carry
-  findings rather than a forward plan. The modeling kernel stays private
-  until E01 is archived.
+  findings rather than a forward plan. The EDA kernel is public. The
+  modeling kernel stays private until its public copy is pushed.
 - Mutable facts — leaderboard, public notebooks, quotas — must be re-checked
   live, never recalled.

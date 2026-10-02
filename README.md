@@ -11,8 +11,10 @@ Notebook-first workflow. Notebooks are the executable source of truth;
 
 ## Status
 
-**Baseline complete (2026-10-02).** Champion LightGBM, F1 OOF AUC
-**0.958331**. Not submitted. CatBoost on the same folds scored 0.957696.
+**Champion submitted (2026-10-03).** LightGBM, F1 OOF AUC **0.958331**,
+public leaderboard **0.95790** (submission 56775984). Two later LightGBM
+arms, survey-zero indicators and 2,000 trees, did not clear the
+predeclared 0.0005 gap. CatBoost on the same folds scored 0.957696.
 
 - Task: probability that `satisfaction` is true.
 - Metric: **ROC AUC** (Kaggle API, 2026-10-02).
