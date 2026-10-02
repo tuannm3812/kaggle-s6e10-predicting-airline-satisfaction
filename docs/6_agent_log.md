@@ -539,3 +539,18 @@ Reviewed commit `b929cb9`. **No implementation or documentation finding.**
   0.95790. No second submission accompanied this documentation update.
 
 This review changed only this append-only log entry.
+
+## 2026-10-03 — R7-1 public notebook text
+
+R7-1 removes process notes from the two public notebooks. The EDA
+stamp is v4 and the modeling stamp is v5, matching the next kernel
+versions. Survey-score handling, the fold split, and the LightGBM
+settings are unchanged. No submission.
+
+The score proposal is not an R7 task. Extra trees and zero indicators
+missed the 0.0005 gap. The unused measurement is that survey score 0
+is not the low end of a numeric scale. The next fit, if agreed, would
+pass those survey columns in as categories, keep the 500-tree LightGBM
+and the same folds, and require the same 0.0005 mean fold gap against
+the current LightGBM out-of-fold vector. It would not be submitted
+unless that gap is met and the user confirms a new submission.
