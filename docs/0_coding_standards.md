@@ -46,8 +46,8 @@ kaggle kernels output tuannm3812/<kernel-slug> -p out/
 The trusted run behind any committed output or ledger row is the Kaggle
 kernel run. Local execution is for syntax and smoke checks.
 
-Kernels stay private, CPU-only, and internet-disabled unless a later
-decision says otherwise (master §12). Save the run log before the next
+Kernels stay CPU-only and internet-disabled. Public visibility is the
+2026-10-03 decision recorded below. Save the run log before the next
 push — Kaggle keeps only the latest run (master §12.1).
 
 ## Validation
@@ -80,12 +80,12 @@ with it. S6E9 measured CatBoost GPU as faster and not bit-reproducible,
 so a GPU result is a separate comparability class and is not promoted
 on its own.
 
-## Kernels stay private until a publication decision
+## Public notebooks carry findings
 
-The EDA kernel is private, CPU-only, and internet-disabled. Codex noted
-on 2026-10-02 that S6E8 and S6E9 published public kernels, and that
-making this one public is a separate decision. A later public notebook
-carries findings, not a forward plan.
+On 2026-10-03 the notebooks were cleared to be public. They stay
+CPU-only and internet-disabled. A public notebook carries findings,
+not a forward plan. The modeling kernel stays private until E01 is
+archived and its notebook no longer describes a future experiment.
 
 ## Run logs and rendered PDFs
 

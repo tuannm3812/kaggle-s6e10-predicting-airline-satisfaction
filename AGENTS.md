@@ -48,7 +48,8 @@ file is submitted. Do not renumber the log.
 
 - Archive the kernel log after every run, before the next push. Kaggle
   keeps only the latest log (master §12.1).
-- The EDA kernel is private. Do not flip `is_private` without an explicit
-  decision, and do not put a roadmap in the notebook.
+- Public notebooks stay CPU-only and internet-disabled, and they carry
+  findings rather than a forward plan. The modeling kernel stays private
+  until E01 is archived.
 - Mutable facts — leaderboard, public notebooks, quotas — must be re-checked
   live, never recalled.

@@ -402,3 +402,13 @@ Promotion margin stays 0.0005 against the control. A new arm is void
 unless the control OOF is bit-identical to `predictions/oof_lightgbm.npy`.
 CatBoost is not refit. GPU stays off. The modeling kernel stays private
 for this run.
+
+## 2026-10-03 — EDA prepared for publication
+
+The publication decision is recorded in `docs/0_coding_standards.md`.
+`notebooks/01_eda.ipynb` is stamped v3. The two forward-looking sections,
+"Modeling Implications" and "Evaluation and Next Steps", are removed.
+Data-preparation findings stay. `notebooks/kernels/eda/kernel-metadata.json`
+sets `is_private` false, with GPU and internet still off. The modeling
+kernel is unchanged and still private. This entry is written before the
+public EDA push; the v3 log is not archived yet.
