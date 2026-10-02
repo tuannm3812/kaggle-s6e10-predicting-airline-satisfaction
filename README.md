@@ -11,7 +11,8 @@ Notebook-first workflow. Notebooks are the executable source of truth;
 
 ## Status
 
-**EDA complete on Kaggle (kernel v1, 2026-10-02).** No model score yet.
+**Baseline complete (2026-10-02).** Champion LightGBM, F1 OOF AUC
+**0.958331**. Not submitted. CatBoost on the same folds scored 0.957696.
 
 - Task: probability that `satisfaction` is true.
 - Metric: **ROC AUC** (Kaggle API, 2026-10-02).

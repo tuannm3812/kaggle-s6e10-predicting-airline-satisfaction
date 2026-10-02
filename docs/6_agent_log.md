@@ -261,3 +261,26 @@ Rendered `renders/notebooks/01_eda.pdf` from the v2 self-export (12 pages)
 and checked pages 1, 5, 8, and 12 as images. The score-0 scatter, the
 drift table, and the v2 summary are readable. The running header wraps
 the last word of the title. Exported both folders to iCloud.
+
+## 2026-10-02 — Baseline predeclared, before the fit
+
+- Renderer evidence is scoped with `--notebook`. A local check refuses to
+  attach one self-export to every notebook once two notebooks exist.
+- `docs/3_implementation_plan.md` states F1, the fold-safe arrival-delay
+  recipe, CatBoost versus LightGBM at 500 trees, and the 0.0005 paired
+  margin. No fit has been run. No leaderboard submission in this phase.
+
+## 2026-10-02 — Baseline kernel v1
+
+Modeling kernel version 1 reached `COMPLETE`. The archiver accepted the
+log as notebook v1 and wrote `assets/kernel_logs/kernel_v01_baseline_f1.log`
+before any later push.
+
+- **Checked:** self-export source matches `notebooks/02_modeling.ipynb`,
+  17 cells, 0 errors.
+- CatBoost OOF AUC 0.957696 (380.2 s). LightGBM OOF AUC 0.958331 (71.4 s).
+  Mean paired fold gap 0.000633. The predeclared rule promotes LightGBM.
+- `scripts/verify_submission.py` passed on the champion file: 299,844 rows,
+  range 0.003021–0.989561. Not submitted.
+- Numbers are in `docs/4_experiment_ledger.md`. OOF and test matrices are
+  in gitignored `predictions/`.

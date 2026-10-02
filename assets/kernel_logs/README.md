@@ -9,3 +9,4 @@ Kaggle serves only the current run (master standard §12.1).
 | --- | --- | --- | --- |
 | `kernel_v01_eda.log` | v1 | v1 | EDA: schema, score 0, drift, adversarial AUC 0.5004 |
 | `kernel_v02_eda_v2.log` | v2 | v2 | Same measurements after the CRISP-DM narrative |
+| `kernel_v01_baseline_f1.log` | modeling v1 | v1 | F1 CatBoost 0.957696, LightGBM 0.958331, promoted |
