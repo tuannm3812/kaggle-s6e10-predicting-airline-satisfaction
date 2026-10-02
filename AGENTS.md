@@ -36,11 +36,14 @@ Add them as `docs/2`–`docs/5` when that work happens. Do not renumber the log.
 
 ## Current state
 
-- Schema recorded 2026-10-02. No notebook and no score yet.
+- EDA notebook authored 2026-10-02. Trusted numbers come from the Kaggle
+  run, then `docs/2_eda_insights.md`. No score yet.
 
 ## Open risks
 
-- Run logs still have no archive helper. Add it before a second kernel push
-  (Codex review, 2026-10-02). It does not block the first EDA run.
+- Archive the kernel log after every run, before the next push. Kaggle
+  keeps only the latest log (master §12.1).
+- The EDA kernel is private. Do not flip `is_private` without an explicit
+  decision, and do not put a roadmap in the notebook.
 - Mutable facts — leaderboard, public notebooks, quotas — must be re-checked
   live, never recalled.

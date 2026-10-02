@@ -72,3 +72,31 @@ the official sample and test headers rather than hardcoding `id`.
   before every submission.
 - Record every submission in `docs/5_submission_manifest.md` once that
   file exists. Never let a scored submission go unrecorded.
+
+## Device
+
+EDA runs on CPU. GPU stays off until a model run has a reason to screen
+with it. S6E9 measured CatBoost GPU as faster and not bit-reproducible,
+so a GPU result is a separate comparability class and is not promoted
+on its own.
+
+## Kernels stay private until a publication decision
+
+The EDA kernel is private, CPU-only, and internet-disabled. Codex noted
+on 2026-10-02 that S6E8 and S6E9 published public kernels, and that
+making this one public is a separate decision. A later public notebook
+carries findings, not a forward plan.
+
+## Run logs and rendered PDFs
+
+After every kernel run, before the next push:
+
+```bash
+python3 scripts/archive_kernel_log.py <version> <label> --kernel eda
+```
+
+`scripts/render_pdf.py --executed-notebook <self-export> --export` writes
+PDFs under `renders/` (gitignored) and mirrors them to iCloud at
+`05_Projects/Kaggle/<repo>/`. The self-export is the copy of
+`/kaggle/working/__notebook__.ipynb` made by the notebook's last cell.
+Do not execute the modeling path locally to manufacture those outputs.

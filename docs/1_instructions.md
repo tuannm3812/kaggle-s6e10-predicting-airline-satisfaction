@@ -39,9 +39,11 @@ and CSVs stay gitignored.
 
 **Binary classification.** Predict the probability that `satisfaction` is
 true. The train target is a boolean (`True` 310,339 / `False` 389,296,
-positive rate 310,339 / 699,635 = 0.4435727201). `sample_submission.csv`
-carries that same constant as a probability, not a label. Checked: the
-sample value equals the train positive rate.
+positive rate 310,339 / 699,635). `sample_submission.csv` carries that
+rate as a constant probability, not a label. Checked 2026-10-02: the
+sample constant `0.4435727200611747` matches the ratio within
+floating-point precision (about `5.55e-17` apart). They are not
+bit-identical.
 
 ## Data (verified 2026-10-02)
 
