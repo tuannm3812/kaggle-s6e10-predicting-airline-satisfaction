@@ -13,3 +13,43 @@ one, never by rewriting it. Record what was checked, not just what was claimed.
 - **Not checked:** CSV headers, row counts, target name, class balance.
   Those stay unknown in `docs/1_instructions.md`.
 - Portfolio card and the EDA notebook were left for a later decision.
+
+## 2026-10-02 — Independent review of Cursor scaffold
+
+Reviewed commit `0197c0e` against the master standard and the current S6E9
+workflow. The worktree was clean and the commit was coherent: repository
+shape, zero-padded future notebook names, append-only log, gitignore rules,
+Kaggle-only trusted execution, and the explicit unknown-data boundary all
+match the declared standards. `bash -n` passed for the push helper,
+`py_compile` passed for the submission verifier after redirecting Python's
+bytecode cache to `/private/tmp`, and `git show --check` reported no errors.
+
+Two follow-ups remain:
+
+1. **Confirmed schema defect — fix after the files are downloaded and before
+   the verifier is relied on.** `scripts/verify_submission.py` assumes the
+   identifier is named `id` in its docstring, `usecols`, column selection,
+   and order check. That contradicts `docs/0_coding_standards.md` and
+   `docs/1_instructions.md`, which correctly say no row id is known yet. A
+   synthetic `id`-based sample passed; the same valid two-column shape with
+   `passenger_key` as the identifier failed at `read_csv` with
+   `ValueError: Usecols do not match columns`. Do not guess the replacement
+   name. Read the official files, record the schema, then specialize the
+   verifier or derive the identifier from the verified sample/test schema.
+2. **Run-evidence workflow gap — close before a second kernel push.** This
+   project's standards say to save each run log before the next push, but
+   the scaffold has no archive helper or archive manifest. S6E9 added
+   `scripts/archive_kernel_log.py` and `assets/kernel_logs/README.md` only
+   after losing the logs for kernel versions 1–8; the master standard now
+   carries that lesson in §12.1. Adapt that workflow before one S6E10 run can
+   overwrite another. This is not blocking the initial scaffold or first
+   EDA run, but it is blocking evidence-safe iteration after that run.
+
+Non-blocking: `scripts/push_kaggle_kernel.sh` retains S6E9's personal
+`/Users/tuannm3812/.../kaggle` fallback. It works on this machine and is not
+inside an uploaded notebook or metadata file, but resolving the CLI from
+`PATH` or a configurable environment variable would make the helper portable.
+
+**Not re-checked in this review:** live Kaggle API facts or CSV contents. No
+data was downloaded, so the original entry's unknowns remain unknown rather
+than being inferred.
