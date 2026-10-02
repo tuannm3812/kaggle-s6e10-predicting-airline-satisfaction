@@ -479,6 +479,11 @@ def main() -> None:
             args.executed_notebook or args.kernel_log or args.with_kernel_log
         )
         chosen = evidence_stems(notebooks, args.notebook, wants)
+        # Re-rendering every notebook would replace an already executed
+        # PDF with source. When the caller names one notebook, only that
+        # file is written.
+        if args.notebook:
+            notebooks = [nb for nb in notebooks if nb.stem in chosen]
         for nb in notebooks:
             attach = nb.stem in chosen
             archived = args.kernel_log if attach and args.kernel_log else None
