@@ -1,0 +1,53 @@
+[{"stream_name":"stderr","time":10.225895277,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.226157201,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.226183178,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.226189858,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":11.122105382,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.122157101,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.122163736,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.122168651,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":20.06471983,"data":"python 3.12.13\n"}
+,{"stream_name":"stdout","time":20.064761582,"data":"{'numpy': '2.0.2', 'pandas': '2.3.3', 'sklearn': '1.6.1', 'lightgbm': '4.6.0'}\n"}
+,{"stream_name":"stdout","time":20.100191265,"data":"DATA_DIR /kaggle/input/competitions/playground-series-s6e10\n"}
+,{"stream_name":"stdout","time":20.100230919,"data":"OUT /kaggle/working\n"}
+,{"stream_name":"stdout","time":20.100234721,"data":"F1 = StratifiedKFold(5, shuffle=True, random_state=42). An arm replaces the control only if its OOF AUC is higher and the mean paired fold gap is at least 0.0005.\n"}
+,{"stream_name":"stdout","time":23.3333266,"data":"(699635, 23) (299844, 22) positive 310339\n"}
+,{"stream_name":"stdout","time":23.333373603,"data":"zero indicators 12\n"}
+,{"stream_name":"stdout","time":24.818887782,"data":"fold 1 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":44.855458509,"data":"  lightgbm_control trees 500 fold AUC 0.958354 seconds 20.0\n"}
+,{"stream_name":"stdout","time":64.729357988,"data":"  lightgbm_zero trees 500 fold AUC 0.958364 seconds 19.8\n"}
+,{"stream_name":"stdout","time":132.957068651,"data":"  lightgbm_capacity trees 2000 fold AUC 0.958507 seconds 68.2\n"}
+,{"stream_name":"stdout","time":133.948253231,"data":"fold 2 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":153.907202942,"data":"  lightgbm_control trees 500 fold AUC 0.957139 seconds 19.9\n"}
+,{"stream_name":"stdout","time":174.294199166,"data":"  lightgbm_zero trees 500 fold AUC 0.957139 seconds 20.3\n"}
+,{"stream_name":"stdout","time":242.460870762,"data":"  lightgbm_capacity trees 2000 fold AUC 0.957169 seconds 68.1\n"}
+,{"stream_name":"stdout","time":243.485420908,"data":"fold 3 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":263.062195236,"data":"  lightgbm_control trees 500 fold AUC 0.959047 seconds 19.5\n"}
+,{"stream_name":"stdout","time":282.571282051,"data":"  lightgbm_zero trees 500 fold AUC 0.959020 seconds 19.5\n"}
+,{"stream_name":"stdout","time":349.974660552,"data":"  lightgbm_capacity trees 2000 fold AUC 0.959000 seconds 67.4\n"}
+,{"stream_name":"stdout","time":350.98642875,"data":"fold 4 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":371.218139721,"data":"  lightgbm_control trees 500 fold AUC 0.958410 seconds 20.2\n"}
+,{"stream_name":"stdout","time":391.639018626,"data":"  lightgbm_zero trees 500 fold AUC 0.958410 seconds 20.4\n"}
+,{"stream_name":"stdout","time":461.11688048,"data":"  lightgbm_capacity trees 2000 fold AUC 0.958352 seconds 69.4\n"}
+,{"stream_name":"stdout","time":462.138828237,"data":"fold 5 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":482.320542371,"data":"  lightgbm_control trees 500 fold AUC 0.958740 seconds 20.1\n"}
+,{"stream_name":"stdout","time":502.46293924,"data":"  lightgbm_zero trees 500 fold AUC 0.958740 seconds 20.1\n"}
+,{"stream_name":"stdout","time":570.466331706,"data":"  lightgbm_capacity trees 2000 fold AUC 0.958580 seconds 68.0\n"}
+,{"stream_name":"stdout","time":570.466387708,"data":"lightgbm_control OOF 0.958331 fold mean 0.958338 fold std 0.000649 seconds 99.8\n"}
+,{"stream_name":"stdout","time":570.84607368,"data":"lightgbm_zero OOF 0.958328 fold mean 0.958335 fold std 0.000643 seconds 100.1\n"}
+,{"stream_name":"stdout","time":570.846114708,"data":"lightgbm_capacity OOF 0.958315 fold mean 0.958322 fold std 0.000615 seconds 341.1\n"}
+,{"stream_name":"stdout","time":571.483745758,"data":"lightgbm_zero OOF 0.958328 mean paired gap -0.000004 clears False\n"}
+,{"stream_name":"stdout","time":571.483776205,"data":"lightgbm_capacity OOF 0.958315 mean paired gap -0.000017 clears False\n"}
+,{"stream_name":"stdout","time":571.483786683,"data":"champion lightgbm_control\n"}
+,{"stream_name":"stdout","time":571.483790452,"data":"NOTEBOOK_VERSION v4\n"}
+,{"stream_name":"stdout","time":572.172370256,"data":"wrote submission.csv 299844\n"}
+,{"stream_name":"stdout","time":572.2022099,"data":"self-export: executed_notebook.ipynb — 17 cells, 5 with outputs, 26 KB\n"}
+,{"stream_name":"stderr","time":576.181621141,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":576.181687852,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":576.402663051,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":576.402700806,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":577.30300863,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":577.699220617,"data":"[NbConvertApp] Writing 25548 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":580.952907486,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":582.109117271,"data":"[NbConvertApp] Writing 333047 bytes to __results__.html\n"}
+]

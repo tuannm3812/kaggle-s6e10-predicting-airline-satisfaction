@@ -66,3 +66,14 @@ absolute difference 0). The control refit does not replace B01's row.
 `submission.csv` from this run is byte-identical to the R1 file and
 passed `scripts/verify_submission.py` again: 299,844 rows, probabilities
 from 0.003021 to 0.989561, 299,589 unique values.
+
+## R2 — public copy of E01
+
+Modeling kernel version 4, notebook v4, 2026-10-03. Public CPU, internet
+disabled. The only source change from v3 is the version stamp. Log:
+`assets/kernel_logs/kernel_v04_e01_public.log`.
+
+All six OOF and test arrays are bit-identical to v3 (`np.array_equal`,
+max absolute difference 0). `submission.csv` is byte-identical to the
+submitted v3 file. This row does not change the champion or the public
+score.

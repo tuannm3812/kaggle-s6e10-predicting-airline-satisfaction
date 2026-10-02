@@ -440,3 +440,16 @@ change from v3 is `NOTEBOOK_VERSION = "v4"`. `is_private` is false.
 GPU and internet stay off. The public text describes the three-arm
 comparison this notebook runs; it does not name a next experiment.
 This entry is written before that push. The v4 log is not archived yet.
+
+## 2026-10-03 — Public modeling rerun
+
+Kernel version 4 completed. The log was archived as
+`assets/kernel_logs/kernel_v04_e01_public.log` before this note.
+Self-export matches the 17-cell source and has no error outputs.
+All six prediction arrays are bit-identical to v3, and `submission.csv`
+is byte-identical to the submitted file. No second submission.
+
+A pull of both kernel metadata files on 2026-10-03 shows `is_private`
+false, `enable_gpu` false, and `enable_internet` false. Executed PDFs
+for `01_eda` (v3 self-export) and `02_modeling` (v4 self-export) were
+rendered with `--notebook` and copied to iCloud.
