@@ -1,0 +1,75 @@
+[{"stream_name":"stderr","time":11.162276079,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.162741239,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.162757499,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.162761921,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.088399507,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.088434417,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.088439888,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.088444465,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":23.77026919,"data":"python 3.12.13\n"}
+,{"stream_name":"stdout","time":23.77031051,"data":"{'numpy': '2.0.2', 'pandas': '2.3.3', 'sklearn': '1.6.1', 'lightgbm': '4.6.0', 'catboost': '1.2.10'}\n"}
+,{"stream_name":"stdout","time":23.795882489,"data":"DATA_DIR /kaggle/input/competitions/playground-series-s6e10\n"}
+,{"stream_name":"stdout","time":23.795929516,"data":"OUT /kaggle/working\n"}
+,{"stream_name":"stdout","time":23.795935898,"data":"F1 = StratifiedKFold(5, shuffle=True, random_state=42). Promote LightGBM only if OOF AUC is higher and the mean paired fold gap is at least 0.0005.\n"}
+,{"stream_name":"stdout","time":27.517436953,"data":"(699635, 23) (299844, 22) positive 310339\n"}
+,{"stream_name":"stdout","time":28.697965324,"data":"fold 1 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":29.85994464,"data":"0:\tlearn: 0.6440669\ttotal: 322ms\tremaining: 2m 40s\n"}
+,{"stream_name":"stdout","time":51.325907222,"data":"100:\tlearn: 0.2427808\ttotal: 21.8s\tremaining: 1m 26s\n"}
+,{"stream_name":"stdout","time":73.07638982,"data":"200:\tlearn: 0.2347232\ttotal: 43.5s\tremaining: 1m 4s\n"}
+,{"stream_name":"stdout","time":94.776112372,"data":"300:\tlearn: 0.2315629\ttotal: 1m 5s\tremaining: 43.1s\n"}
+,{"stream_name":"stdout","time":116.087077971,"data":"400:\tlearn: 0.2299829\ttotal: 1m 26s\tremaining: 21.4s\n"}
+,{"stream_name":"stdout","time":136.380576321,"data":"499:\tlearn: 0.2287797\ttotal: 1m 46s\tremaining: 0us\n"}
+,{"stream_name":"stdout","time":137.062659634,"data":"  catboost fold AUC 0.957694 seconds 108.5\n"}
+,{"stream_name":"stdout","time":156.725120639,"data":"  lightgbm fold AUC 0.958354 seconds 19.6\n"}
+,{"stream_name":"stdout","time":157.559975418,"data":"fold 2 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":158.333634876,"data":"0:\tlearn: 0.6438804\ttotal: 226ms\tremaining: 1m 52s\n"}
+,{"stream_name":"stdout","time":179.6174653,"data":"100:\tlearn: 0.2425840\ttotal: 21.5s\tremaining: 1m 24s\n"}
+,{"stream_name":"stdout","time":201.4046188,"data":"200:\tlearn: 0.2339146\ttotal: 43.3s\tremaining: 1m 4s\n"}
+,{"stream_name":"stdout","time":222.817895872,"data":"300:\tlearn: 0.2309013\ttotal: 1m 4s\tremaining: 42.8s\n"}
+,{"stream_name":"stdout","time":244.071435384,"data":"400:\tlearn: 0.2291703\ttotal: 1m 25s\tremaining: 21.2s\n"}
+,{"stream_name":"stdout","time":265.295863043,"data":"499:\tlearn: 0.2279006\ttotal: 1m 47s\tremaining: 0us\n"}
+,{"stream_name":"stdout","time":265.94776056,"data":"  catboost fold AUC 0.956519 seconds 108.7\n"}
+,{"stream_name":"stdout","time":285.634925332,"data":"  lightgbm fold AUC 0.957139 seconds 19.6\n"}
+,{"stream_name":"stdout","time":286.44473159,"data":"fold 3 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":287.21361895,"data":"0:\tlearn: 0.6440975\ttotal: 227ms\tremaining: 1m 53s\n"}
+,{"stream_name":"stdout","time":308.433693341,"data":"100:\tlearn: 0.2440167\ttotal: 21.4s\tremaining: 1m 24s\n"}
+,{"stream_name":"stdout","time":329.967495623,"data":"200:\tlearn: 0.2354003\ttotal: 43s\tremaining: 1m 3s\n"}
+,{"stream_name":"stdout","time":351.933984585,"data":"300:\tlearn: 0.2321173\ttotal: 1m 4s\tremaining: 42.9s\n"}
+,{"stream_name":"stdout","time":373.543628211,"data":"400:\tlearn: 0.2302361\ttotal: 1m 26s\tremaining: 21.4s\n"}
+,{"stream_name":"stdout","time":394.677400948,"data":"499:\tlearn: 0.2290189\ttotal: 1m 47s\tremaining: 0us\n"}
+,{"stream_name":"stdout","time":395.329235058,"data":"  catboost fold AUC 0.958526 seconds 109.2\n"}
+,{"stream_name":"stdout","time":414.836012261,"data":"  lightgbm fold AUC 0.959047 seconds 19.5\n"}
+,{"stream_name":"stdout","time":415.644334561,"data":"fold 4 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":416.422974876,"data":"0:\tlearn: 0.6440457\ttotal: 225ms\tremaining: 1m 52s\n"}
+,{"stream_name":"stdout","time":438.041451537,"data":"100:\tlearn: 0.2435652\ttotal: 21.8s\tremaining: 1m 26s\n"}
+,{"stream_name":"stdout","time":459.845374692,"data":"200:\tlearn: 0.2347864\ttotal: 43.6s\tremaining: 1m 4s\n"}
+,{"stream_name":"stdout","time":481.797735031,"data":"300:\tlearn: 0.2316756\ttotal: 1m 5s\tremaining: 43.4s\n"}
+,{"stream_name":"stdout","time":504.078052685,"data":"400:\tlearn: 0.2298294\ttotal: 1m 27s\tremaining: 21.7s\n"}
+,{"stream_name":"stdout","time":525.477112111,"data":"499:\tlearn: 0.2285624\ttotal: 1m 49s\tremaining: 0us\n"}
+,{"stream_name":"stdout","time":526.127409113,"data":"  catboost fold AUC 0.957743 seconds 110.8\n"}
+,{"stream_name":"stdout","time":546.12942275,"data":"  lightgbm fold AUC 0.958410 seconds 19.9\n"}
+,{"stream_name":"stdout","time":546.91459847,"data":"fold 5 median 0.0000 val rows 139927\n"}
+,{"stream_name":"stdout","time":547.701965617,"data":"0:\tlearn: 0.6440202\ttotal: 224ms\tremaining: 1m 51s\n"}
+,{"stream_name":"stdout","time":569.025388369,"data":"100:\tlearn: 0.2432491\ttotal: 21.5s\tremaining: 1m 25s\n"}
+,{"stream_name":"stdout","time":590.645479941,"data":"200:\tlearn: 0.2346595\ttotal: 43.1s\tremaining: 1m 4s\n"}
+,{"stream_name":"stdout","time":612.754794504,"data":"300:\tlearn: 0.2315271\ttotal: 1m 5s\tremaining: 43.1s\n"}
+,{"stream_name":"stdout","time":634.395152426,"data":"400:\tlearn: 0.2297156\ttotal: 1m 26s\tremaining: 21.4s\n"}
+,{"stream_name":"stdout","time":655.81592476,"data":"499:\tlearn: 0.2285379\ttotal: 1m 48s\tremaining: 0us\n"}
+,{"stream_name":"stdout","time":656.456291022,"data":"  catboost fold AUC 0.958041 seconds 109.8\n"}
+,{"stream_name":"stdout","time":676.061014294,"data":"  lightgbm fold AUC 0.958740 seconds 19.6\n"}
+,{"stream_name":"stdout","time":676.0610453,"data":"catboost OOF 0.957696 fold mean 0.957705 fold std 0.000663 seconds 547.0\n"}
+,{"stream_name":"stdout","time":676.255117247,"data":"lightgbm OOF 0.958331 fold mean 0.958338 fold std 0.000649 seconds 98.2\n"}
+,{"stream_name":"stdout","time":676.911580892,"data":"catboost 0.957696 lightgbm 0.958331 mean paired gap 0.000633 promote True\n"}
+,{"stream_name":"stdout","time":676.911613899,"data":"champion lightgbm\n"}
+,{"stream_name":"stdout","time":676.911633767,"data":"NOTEBOOK_VERSION v2\n"}
+,{"stream_name":"stdout","time":677.376285051,"data":"wrote submission.csv 299844\n"}
+,{"stream_name":"stdout","time":677.406832517,"data":"self-export: executed_notebook.ipynb — 17 cells, 5 with outputs, 28 KB\n"}
+,{"stream_name":"stderr","time":681.663560653,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":681.663598962,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":681.894082082,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":681.894115083,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":682.78610719,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":683.201687323,"data":"[NbConvertApp] Writing 24969 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":686.432125508,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":687.561217074,"data":"[NbConvertApp] Writing 328827 bytes to __results__.html\n"}
+]

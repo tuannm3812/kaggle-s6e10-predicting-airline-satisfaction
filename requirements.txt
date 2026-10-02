@@ -1,13 +1,14 @@
-# Versions printed by airline-satisfaction-eda kernel v1 (2026-10-02).
-# scipy, seaborn, lightgbm, and catboost were not imported on that run.
+# numpy, pandas, scikit-learn, and matplotlib: EDA kernel v1, 2026-10-02.
+# lightgbm and catboost: modeling kernel v2, 2026-10-02. B01 did not
+# print those two; R1 did, and its predictions matched B01 bit for bit.
 numpy==2.0.2
 pandas==2.3.3
 scikit-learn==1.6.1
 matplotlib==3.10.0
+lightgbm==4.6.0
+catboost==1.2.10
 scipy
 seaborn
-lightgbm
-catboost
 jupyter
 ipykernel
 kaggle

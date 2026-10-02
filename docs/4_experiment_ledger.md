@@ -26,3 +26,19 @@ predeclared bar was 0.0005, and LightGBM's overall OOF AUC is higher.
 `scripts/verify_submission.py` passed on the champion `submission.csv`:
 299,844 rows, probabilities from 0.003021 to 0.989561, 299,589 unique
 values. The file was not submitted to the leaderboard.
+
+B01 printed Python, NumPy, and pandas only. LightGBM and CatBoost
+versions for that run were not captured. Do not backfill them.
+
+## R1 — same pair, library versions printed
+
+Modeling kernel version 2, notebook v2, 2026-10-02. The only code change
+from B01 is the version stamp and the version print. Log:
+`assets/kernel_logs/kernel_v02_versions_v2.log`.
+
+Printed on the worker: Python 3.12.13, numpy 2.0.2, pandas 2.3.3,
+scikit-learn 1.6.1, lightgbm 4.6.0, catboost 1.2.10.
+
+OOF and test vectors are bit-identical to B01 (`np.array_equal` on all
+four arrays, max absolute difference 0). The promotion stands. This row
+identifies the libraries; it does not replace B01's score.

@@ -339,3 +339,17 @@ is treated as trusted. There is no reason to submit or make either kernel
 public as part of these fixes.
 
 This review changed only this append-only log entry.
+
+## 2026-10-02 — Render path and library versions
+
+Follow-ups from the review above.
+
+- Named source-only rendering now selects the notebook before attaching
+  evidence. **Checked:** `--notebook 02_modeling` with no self-export
+  writes that PDF; `--notebook does-not-exist` exits 1. The executed
+  modeling PDF was restored after that write check.
+- Modeling notebook v2 prints scikit-learn, LightGBM, and CatBoost.
+  Kernel version 2 reached `COMPLETE`. The archiver accepted stamp v2.
+- **Checked:** OOF and test arrays are bit-identical to B01. Printed
+  versions are lightgbm 4.6.0 and catboost 1.2.10, now pinned. B01's
+  missing versions were not invented. No submission and no public kernel.
