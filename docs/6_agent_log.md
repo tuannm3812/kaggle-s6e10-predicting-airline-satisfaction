@@ -235,3 +235,22 @@ existing two-folder iCloud layout.
 The renderer's multi-notebook evidence-scoping defect does not block this
 single-notebook v2 run, but it must be fixed before `02_modeling.ipynb` is
 added or rendered.
+
+## 2026-10-02 — EDA kernel v2, narrative only
+
+Followed the handoff above.
+
+- Archive guard: `--self-check` accepts `kernel_v01_eda.log` as v1, rejects
+  it as v2, and accepts a JSON `"notebook_version": "v3"` stamp. **Checked**
+  before the push.
+- Code-cell diff against v1 is only `NOTEBOOK_VERSION = "v2"`. Committed
+  notebook is output-free.
+- Pushed private CPU kernel version 2. Status `COMPLETE`.
+- `archive_kernel_log.py 2 eda_v2` printed `the log reports notebook version
+  v2` and wrote `assets/kernel_logs/kernel_v02_eda_v2.log` before any later
+  push.
+- Self-export has 26 cells, source matches the committed notebook, 0 errors.
+- Stdout matches v1 except the self-export line (26 cells / 232 KB versus
+  24 cells / 228 KB). `docs/2_eda_insights.md` was not revised.
+- Render and iCloud export follow this entry. The multi-notebook render
+  scoping defect is still open and still blocks `02_modeling.ipynb`.

@@ -1,0 +1,129 @@
+[{"stream_name":"stderr","time":11.147993873,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.148075996,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.148084694,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.148097258,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.011591104,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.01162773,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.011631599,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.011634541,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":18.299821101,"data":"python 3.12.13\n"}
+,{"stream_name":"stdout","time":18.299863803,"data":"{'numpy': '2.0.2', 'pandas': '2.3.3', 'sklearn': '1.6.1', 'matplotlib': '3.10.0'}\n"}
+,{"stream_name":"stdout","time":18.329395214,"data":"DATA_DIR = /kaggle/input/competitions/playground-series-s6e10\n"}
+,{"stream_name":"stdout","time":21.400839031,"data":"train (699635, 23) test (299844, 22) positive 310339\n"}
+,{"stream_name":"stdout","time":21.434395531,"data":"positive 310339 / 699635 = 0.4435727200611748\n"}
+,{"stream_name":"stdout","time":21.434433447,"data":"sample constant 0.4435727200611747\n"}
+,{"stream_name":"stdout","time":21.434439369,"data":"absolute difference 5.551e-17\n"}
+,{"stream_name":"stdout","time":21.434443623,"data":"sample is constant: True\n"}
+,{"stream_name":"stdout","time":21.76825402,"data":"train nulls\n"}
+,{"stream_name":"stdout","time":21.768336961,"data":"Arrival Delay in Minutes    292\n"}
+,{"stream_name":"stdout","time":21.768344956,"data":"test nulls\n"}
+,{"stream_name":"stdout","time":21.768348882,"data":"Arrival Delay in Minutes    130\n"}
+,{"stream_name":"stdout","time":21.768352845,"data":"null rate train 0.000417 (292), test 0.000434\n"}
+,{"stream_name":"stdout","time":21.768356739,"data":"                              mean    size\n"}
+,{"stream_name":"stdout","time":21.768361176,"data":"Arrival Delay in Minutes                  \n"}
+,{"stream_name":"stdout","time":21.768364701,"data":"observed                  0.443606  699343\n"}
+,{"stream_name":"stdout","time":21.768367968,"data":"missing                   0.363014     292\n"}
+,{"stream_name":"stdout","time":21.768371604,"data":"corr(departure, arrival | observed) = 0.842034\n"}
+,{"stream_name":"stdout","time":22.134179569,"data":"                          feature  zero_share  rate_at_0  rate_at_1_to_5  min  max\n"}
+,{"stream_name":"stdout","time":22.134216258,"data":"Departure/Arrival time convenient      0.0368     0.4777          0.4423    0    5\n"}
+,{"stream_name":"stdout","time":22.134231067,"data":"           Ease of Online booking      0.0230     0.7076          0.4374    0    5\n"}
+,{"stream_name":"stdout","time":22.134235745,"data":"            Inflight wifi service      0.0187     0.8873          0.4351    0    5\n"}
+,{"stream_name":"stdout","time":22.134240133,"data":"                  Online boarding      0.0131     0.6204          0.4412    0    5\n"}
+,{"stream_name":"stdout","time":22.134244598,"data":"                 Leg room service      0.0024     0.2699          0.4440    0    5\n"}
+,{"stream_name":"stdout","time":22.134254107,"data":"                    Gate location      0.0021     0.5430          0.4434    0    5\n"}
+,{"stream_name":"stdout","time":22.134270911,"data":"           Inflight entertainment      0.0015     0.1402          0.4440    0    5\n"}
+,{"stream_name":"stdout","time":22.134280648,"data":"                   Food and drink      0.0014     0.2189          0.4439    0    5\n"}
+,{"stream_name":"stdout","time":22.134283823,"data":"                      Cleanliness      0.0014     0.1683          0.4439    0    5\n"}
+,{"stream_name":"stdout","time":22.134288057,"data":"                  Checkin service      0.0013     0.1787          0.4439    0    5\n"}
+,{"stream_name":"stdout","time":22.134291875,"data":"                     Seat comfort      0.0012     0.1838          0.4439    0    5\n"}
+,{"stream_name":"stdout","time":22.134295629,"data":"                 On-board service      0.0011     0.1473          0.4439    0    5\n"}
+,{"stream_name":"stdout","time":22.13430438,"data":"                 Baggage handling      0.0000        NaN          0.4436    1    5\n"}
+,{"stream_name":"stdout","time":22.964831212,"data":"\n"}
+,{"stream_name":"stdout","time":22.964868633000002,"data":"Gender\n"}
+,{"stream_name":"stdout","time":22.96487378,"data":"         mean    size\n"}
+,{"stream_name":"stdout","time":22.964877781,"data":"Gender               \n"}
+,{"stream_name":"stdout","time":22.964881653,"data":"Female 0.4380  347952\n"}
+,{"stream_name":"stdout","time":22.964885562,"data":"Male   0.4491  351683\n"}
+,{"stream_name":"stdout","time":22.96488909,"data":"\n"}
+,{"stream_name":"stdout","time":22.96489263,"data":"Customer Type\n"}
+,{"stream_name":"stdout","time":22.964896403,"data":"                    mean    size\n"}
+,{"stream_name":"stdout","time":22.96489997,"data":"Customer Type                   \n"}
+,{"stream_name":"stdout","time":22.964903712999998,"data":"disloyal Customer 0.2009  122645\n"}
+,{"stream_name":"stdout","time":22.964907232,"data":"Loyal Customer    0.4951  576990\n"}
+,{"stream_name":"stdout","time":22.964911274,"data":"\n"}
+,{"stream_name":"stdout","time":22.964914963,"data":"Type of Travel\n"}
+,{"stream_name":"stdout","time":22.964918512,"data":"                  mean    size\n"}
+,{"stream_name":"stdout","time":22.964922232,"data":"Type of Travel                \n"}
+,{"stream_name":"stdout","time":22.964925867,"data":"Personal Travel 0.0973  202194\n"}
+,{"stream_name":"stdout","time":22.964929938,"data":"Business travel 0.5843  497441\n"}
+,{"stream_name":"stdout","time":22.964933741,"data":"\n"}
+,{"stream_name":"stdout","time":22.964937412,"data":"Class\n"}
+,{"stream_name":"stdout","time":22.964941002,"data":"           mean    size\n"}
+,{"stream_name":"stdout","time":22.96494472,"data":"Class                  \n"}
+,{"stream_name":"stdout","time":22.964948304,"data":"Eco      0.1676  327404\n"}
+,{"stream_name":"stdout","time":22.964951714,"data":"Eco Plus 0.2422   30019\n"}
+,{"stream_name":"stdout","time":22.964955255,"data":"Business 0.7253  342212\n"}
+,{"stream_name":"stdout","time":25.514578851,"data":"                          feature    auc  missing\n"}
+,{"stream_name":"stdout","time":25.51461738,"data":"                  Online boarding 0.8404        0\n"}
+,{"stream_name":"stdout","time":25.514621498,"data":"           Inflight entertainment 0.7445        0\n"}
+,{"stream_name":"stdout","time":25.514624323,"data":"                     Seat comfort 0.7321        0\n"}
+,{"stream_name":"stdout","time":25.514627005,"data":"                 On-board service 0.6993        0\n"}
+,{"stream_name":"stdout","time":25.514629532,"data":"                  Flight Distance 0.6956        0\n"}
+,{"stream_name":"stdout","time":25.514650324,"data":"                      Cleanliness 0.6894        0\n"}
+,{"stream_name":"stdout","time":25.51465488,"data":"                 Leg room service 0.6877        0\n"}
+,{"stream_name":"stdout","time":25.514659018,"data":"            Inflight wifi service 0.6627        0\n"}
+,{"stream_name":"stdout","time":25.514663007,"data":"                 Baggage handling 0.6549        0\n"}
+,{"stream_name":"stdout","time":25.514667085,"data":"                  Checkin service 0.6355        0\n"}
+,{"stream_name":"stdout","time":25.514670838,"data":"                              Age 0.6244        0\n"}
+,{"stream_name":"stdout","time":25.514674735,"data":"                   Food and drink 0.6211        0\n"}
+,{"stream_name":"stdout","time":25.514678973,"data":"           Ease of Online booking 0.6090        0\n"}
+,{"stream_name":"stdout","time":25.514682805,"data":"Departure/Arrival time convenient 0.5265        0\n"}
+,{"stream_name":"stdout","time":25.514686678,"data":"         Arrival Delay in Minutes 0.5162      292\n"}
+,{"stream_name":"stdout","time":25.514690424,"data":"                    Gate location 0.5137        0\n"}
+,{"stream_name":"stdout","time":25.514694399,"data":"       Departure Delay in Minutes 0.5085        0\n"}
+,{"stream_name":"stdout","time":27.373065603,"data":"                          feature        kind     stat\n"}
+,{"stream_name":"stdout","time":27.37311088,"data":"                      Cleanliness     numeric 0.002747\n"}
+,{"stream_name":"stdout","time":27.373373335,"data":"                   Food and drink     numeric 0.002169\n"}
+,{"stream_name":"stdout","time":27.373386353,"data":"                 On-board service     numeric 0.002164\n"}
+,{"stream_name":"stdout","time":27.373390716,"data":"                 Leg room service     numeric 0.001608\n"}
+,{"stream_name":"stdout","time":27.373394485,"data":"                           Gender categorical 0.001536\n"}
+,{"stream_name":"stdout","time":27.373398242,"data":"                 Baggage handling     numeric 0.001452\n"}
+,{"stream_name":"stdout","time":27.373401688,"data":"Departure/Arrival time convenient     numeric 0.001423\n"}
+,{"stream_name":"stdout","time":27.373405149,"data":"                    Customer Type categorical 0.001421\n"}
+,{"stream_name":"stdout","time":27.373421604,"data":"                     Seat comfort     numeric 0.001369\n"}
+,{"stream_name":"stdout","time":27.373425867999998,"data":"           Inflight entertainment     numeric 0.001233\n"}
+,{"stream_name":"stdout","time":27.373429628,"data":"                  Checkin service     numeric 0.001204\n"}
+,{"stream_name":"stdout","time":27.373433332,"data":"                              Age     numeric 0.001161\n"}
+,{"stream_name":"stdout","time":27.373437021,"data":"                  Flight Distance     numeric 0.000945\n"}
+,{"stream_name":"stdout","time":27.373440696,"data":"                  Online boarding     numeric 0.000870\n"}
+,{"stream_name":"stdout","time":27.373444262,"data":"           Ease of Online booking     numeric 0.000780\n"}
+,{"stream_name":"stdout","time":27.373448203,"data":"       Departure Delay in Minutes     numeric 0.000669\n"}
+,{"stream_name":"stdout","time":27.373452292,"data":"            Inflight wifi service     numeric 0.000653\n"}
+,{"stream_name":"stdout","time":27.373456044,"data":"                            Class categorical 0.000443\n"}
+,{"stream_name":"stdout","time":27.373459821,"data":"                    Gate location     numeric 0.000407\n"}
+,{"stream_name":"stdout","time":27.373463376,"data":"         Arrival Delay in Minutes     numeric 0.000402\n"}
+,{"stream_name":"stdout","time":27.373482157,"data":"                   Type of Travel categorical 0.000161\n"}
+,{"stream_name":"stdout","time":27.373486321,"data":"max stat 0.0027468967614925344\n"}
+,{"stream_name":"stdout","time":32.138399255,"data":"adversarial OOF AUC 0.5004 on 200000 rows per side, 3-fold\n"}
+,{"stream_name":"stdout","time":32.338963782,"data":"NOTEBOOK_VERSION v2\n"}
+,{"stream_name":"stdout","time":32.339001591,"data":"rows 699635 299844\n"}
+,{"stream_name":"stdout","time":32.339006533,"data":"positive_rate 0.4435727201\n"}
+,{"stream_name":"stdout","time":32.339010825,"data":"arrival_null_train 292\n"}
+,{"stream_name":"stdout","time":32.339015215,"data":"top_univariate {'feature': 'Online boarding', 'auc': 0.8403949917282508, 'missing': 0}\n"}
+,{"stream_name":"stdout","time":32.339019607,"data":"max_drift 0.0027468967614925344\n"}
+,{"stream_name":"stdout","time":32.339023685,"data":"adversarial_auc 0.5004\n"}
+,{"stream_name":"stdout","time":32.714435963,"data":"duplicate_feature_rows 0\n"}
+,{"stream_name":"stdout","time":32.77968267,"data":"self-export: executed_notebook.ipynb — 26 cells, 11 with outputs, 232 KB\n"}
+,{"stream_name":"stderr","time":36.595310004,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":36.595349967,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":36.817605218,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":36.817645134,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":37.74633888,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":38.171246088,"data":"[NbConvertApp] Writing 237962 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":41.391216953,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":42.589826193,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":42.589860825,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":42.590129098,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":42.590230116,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":42.590601052,"data":"[NbConvertApp] Writing 354343 bytes to __results__.html\n"}
+]

@@ -37,8 +37,8 @@ Add them as `docs/3`–`docs/5`. Do not renumber the log.
 
 ## Current state
 
-- EDA kernel v1 complete, 2026-10-02. Findings in `docs/2_eda_insights.md`.
-  No model score yet.
+- EDA kernel v2 complete, 2026-10-02. Narrative revision; measurements
+  match v1 in `docs/2_eda_insights.md`. No model score yet.
 
 ## Open risks
 
