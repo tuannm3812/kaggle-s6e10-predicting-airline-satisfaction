@@ -84,8 +84,8 @@ on its own.
 
 On 2026-10-03 the notebooks were cleared to be public. They stay
 CPU-only and internet-disabled. A public notebook carries findings,
-not a forward plan. The modeling kernel stays private until E01 is
-archived and its notebook no longer describes a future experiment.
+not a forward plan. EDA kernel v3 is public. The modeling kernel is
+public from the push that follows the archived E01 run.
 
 ## Run logs and rendered PDFs
 

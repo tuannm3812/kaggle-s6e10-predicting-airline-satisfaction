@@ -48,7 +48,6 @@ positive), identifier `id`, submission is one probability per test row.
 - Archive the kernel log after every run, before the next push. Kaggle
   keeps only the latest log (master §12.1).
 - Public notebooks stay CPU-only and internet-disabled, and they carry
-  findings rather than a forward plan. The EDA kernel is public. The
-  modeling kernel stays private until its public copy is pushed.
+  findings rather than a forward plan.
 - Mutable facts — leaderboard, public notebooks, quotas — must be re-checked
   live, never recalled.

@@ -432,3 +432,11 @@ EDA kernel v3 also completed and was archived as
 `assets/kernel_logs/kernel_v03_eda_public.log`. Source matches, no
 error outputs. The log still prints Online boarding AUC 0.8404 and
 adversarial OOF AUC 0.5004, and `NOTEBOOK_VERSION v3`.
+
+## 2026-10-03 — Modeling notebook cleared for publication
+
+E01 is archived, so the modeling kernel can be public. The only notebook
+change from v3 is `NOTEBOOK_VERSION = "v4"`. `is_private` is false.
+GPU and internet stay off. The public text describes the three-arm
+comparison this notebook runs; it does not name a next experiment.
+This entry is written before that push. The v4 log is not archived yet.
